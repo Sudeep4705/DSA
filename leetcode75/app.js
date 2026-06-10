@@ -22,21 +22,6 @@
 // console.log(res);
 
 
-// function divisorString(str1,str2){
-
-//     let temp= ""
-//     for(let i=0;i<str2.length;i++){
-//             temp = str2[i]
-//         for(let j=0;j<str1.length;j++){
-//             temp+=temp
-//         }
-//         console.log(temp);
-        
-//     }
-// }
-
-// let res = divisorString("ABCABC","ABC")
-// console.log(res);
 
 // function gcdOfStrings(str1, str2) {
 //     function canBuild(str,pattern) {
@@ -59,26 +44,48 @@
 
 // console.log(gcdOfStrings("ABCABC", "ABC")); 
 
-function candies(candies, extraCandies){
-let max = 0
-let arr = []
-for(let i=0;i<candies.length;i++){
-    if(max<candies[i]){
-        max=candies[i]
-    }
+// function candies(candies, extraCandies){
+// let max = 0
+// let arr = []
+// for(let i=0;i<candies.length;i++){
+//     if(max<candies[i]){
+//         max=candies[i]
+//     }
+// }
+
+// for(let j=0;j<candies.length;j++){
+//     let sum = 0
+//     sum= candies[j] + extraCandies
+//     if(sum>=max){
+//         arr[j]=true
+//     }else{
+//         arr[j]=false
+//     }
+// }
+// return arr
+// }
+// let res = candies([2,3,5,1,3],3)
+// console.log(res);
+
+
+function PlaceFlower(flowerbed,n){
+    let count = 0
+    for(let i=0;i<flowerbed.length;i++){
+        if(flowerbed[i]===0){
+           const leftempty = (flowerbed[i-1]===0)
+           const rightempty =  (flowerbed[i+1]===0)
+           if(leftempty && rightempty){
+            flowerbed[i] = 
+            count++
+            i++
+            if(count>=n) return true
+           }
+        }
+      
+}
+  return count>=n
+
 }
 
-for(let j=0;j<candies.length;j++){
-    let sum = 0
-    sum= candies[j] + extraCandies
-    if(sum>=max){
-        arr[j]=true
-    }else{
-        arr[j]=false
-    }
-}
-return arr
-}
-
-let res = candies([2,3,5,1,3],3)
+let res = PlaceFlower([1,0,0,0,1],2)
 console.log(res);
