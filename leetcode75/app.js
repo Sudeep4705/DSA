@@ -68,24 +68,49 @@
 // console.log(res);
 
 
-function PlaceFlower(flowerbed,n){
-    let count = 0
-    for(let i=0;i<flowerbed.length;i++){
-        if(flowerbed[i]===0){
-           const leftempty = (flowerbed[i-1]===0)
-           const rightempty =  (flowerbed[i+1]===0)
-           if(leftempty && rightempty){
-            flowerbed[i] = 
-            count++
-            i++
-            if(count>=n) return true
-           }
-        }
+// function PlaceFlower(flowerbed,n){
+//     let count = 0
+//     for(let i=0;i<flowerbed.length;i++){
+//         if(flowerbed[i]===0){
+//            const leftempty = (flowerbed[i-1]===0)
+//            const rightempty =  (flowerbed[i+1]===0)
+//            if(leftempty && rightempty){
+//             flowerbed[i] = 
+//             count++
+//             i++
+//             if(count>=n) return true
+//            }
+//         }
       
-}
-  return count>=n
+// }
+//   return count>=n
+
+// }
+// let res = PlaceFlower([1,0,0,0,1],2)
+// console.log(res);
+
+
+function reVowels(s){
+  let i=0,j=s.length-1
+  let first,sec
+   let Vowels = "aeiouAEIOU"
+  while(i<j){
+    if(Vowels.includes(s[i])){
+       first = s[i]
+       console.log(first);
+       i++
+    }
+    
+    if(Vowels.includes(s[j])){
+         sec = s[j]
+         console.log(sec);
+         j--
+    }
+    i++ 
+    j--
+
+  }
 
 }
-
-let res = PlaceFlower([1,0,0,0,1],2)
+let res =  reVowels("IceCreAm")
 console.log(res);
