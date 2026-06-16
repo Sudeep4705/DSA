@@ -1,5 +1,3 @@
-
-
 // function mergestr(word1,word2){
 // let i=0,j=0,str=""
 //     while(i<word1.length && j<word2.length){
@@ -21,8 +19,6 @@
 // let res = mergestr("ab","pqrs")
 // console.log(res);
 
-
-
 // function gcdOfStrings(str1, str2) {
 //     function canBuild(str,pattern) {
 //         let temp = "";
@@ -42,7 +38,7 @@
 //     return answer;
 // }
 
-// console.log(gcdOfStrings("ABCABC", "ABC")); 
+// console.log(gcdOfStrings("ABCABC", "ABC"));
 
 // function candies(candies, extraCandies){
 // let max = 0
@@ -67,7 +63,6 @@
 // let res = candies([2,3,5,1,3],3)
 // console.log(res);
 
-
 // function PlaceFlower(flowerbed,n){
 //     let count = 0
 //     for(let i=0;i<flowerbed.length;i++){
@@ -75,13 +70,13 @@
 //            const leftempty = (flowerbed[i-1]===0)
 //            const rightempty =  (flowerbed[i+1]===0)
 //            if(leftempty && rightempty){
-//             flowerbed[i] = 
+//             flowerbed[i] =
 //             count++
 //             i++
 //             if(count>=n) return true
 //            }
 //         }
-      
+
 // }
 //   return count>=n
 
@@ -89,28 +84,20 @@
 // let res = PlaceFlower([1,0,0,0,1],2)
 // console.log(res);
 
-
-function reVowels(s){
-  let i=0,j=s.length-1
-  let first,sec
-   let Vowels = "aeiouAEIOU"
-  while(i<j){
-    if(Vowels.includes(s[i])){
-       first = s[i]
-       console.log(first);
-       i++
-    }
-    
-    if(Vowels.includes(s[j])){
-         sec = s[j]
-         console.log(sec);
-         j--
-    }
-    i++ 
-    j--
-
+function reVowels(s) {
+  let newstr = s.split("");
+  let i = 0,j = newstr.length - 1;
+  let Vowels = "aeiouAEIOU";
+  while (i < j) {
+      while(i<j && !Vowels.includes(newstr[i]))i++
+      while(i<j && !Vowels.includes(newstr[j]))j--
+      let temp = newstr[i]
+      newstr[i]=newstr[j]
+      newstr[j]=temp
+      i++
+      j--
   }
-
+  return newstr.join("");
 }
-let res =  reVowels("IceCreAm")
+let res = reVowels("IceCreAm");
 console.log(res);
