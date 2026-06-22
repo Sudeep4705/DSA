@@ -84,20 +84,31 @@
 // let res = PlaceFlower([1,0,0,0,1],2)
 // console.log(res);
 
-function reVowels(s) {
-  let newstr = s.split("");
-  let i = 0,j = newstr.length - 1;
-  let Vowels = "aeiouAEIOU";
-  while (i < j) {
-      while(i<j && !Vowels.includes(newstr[i]))i++
-      while(i<j && !Vowels.includes(newstr[j]))j--
-      let temp = newstr[i]
-      newstr[i]=newstr[j]
-      newstr[j]=temp
-      i++
-      j--
-  }
-  return newstr.join("");
+// function reVowels(s) {
+//   let newstr = s.split("");
+//   let i = 0,j = newstr.length - 1;
+//   let Vowels = "aeiouAEIOU";
+//   while (i < j) {
+//       while(i<j && !Vowels.includes(newstr[i]))i++
+//       while(i<j && !Vowels.includes(newstr[j]))j--
+//       let temp = newstr[i]
+//       newstr[i]=newstr[j]
+//       newstr[j]=temp
+//       i++
+//       j--
+//   }
+//   return newstr.join("");
+// }
+// let res = reVowels("IceCreAm");
+// console.log(res);
+
+
+function RVS(s){
+  let newstr =  s.replace(/\s+/g, ' ').trim()
+return newstr.split(" ").reverse(" ").join(" ")
+
+
 }
-let res = reVowels("IceCreAm");
+
+let res = RVS("a good   example")
 console.log(res);
