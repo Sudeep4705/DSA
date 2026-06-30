@@ -103,12 +103,40 @@
 // console.log(res);
 
 
-function RVS(s){
-  let newstr =  s.replace(/\s+/g, ' ').trim()
-return newstr.split(" ").reverse(" ").join(" ")
+// function RVS(s){
+//   let newstr =  s.replace(/\s+/g, ' ').trim()
+// return newstr.split(" ").reverse(" ").join(" ")
+// }
+
+// let res = RVS("a good   example")
+// console.log(res);
 
 
+function productExceptSelf(nums){
+    let n = nums.length
+const right = new Array(n)
+const left = new Array(n)
+left[0]=1
+right[n-1]=1
+// left
+for(let i=1;i<n;i++){
+     left[i] = left[i-1]*nums[i-1]
+      console.log(left[i-1],nums[i-1]);
+} 
+//right
+ console.log("tthis right loop");
+for(let i=n-2;i>=0;i--){
+    right[i] = right[i+1] * nums[i+1]
+    console.log(right[i+1] ,nums[i+1]);
+    
 }
-
-let res = RVS("a good   example")
+const answer = []
+for(let i=0;i<n;i++){
+    let product = left[i]*right[i]
+    answer.push(product)
+}
+return answer
+}
+let res =  productExceptSelf([1,2,3,4])
 console.log(res);
+
