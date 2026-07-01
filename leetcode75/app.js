@@ -102,7 +102,6 @@
 // let res = reVowels("IceCreAm");
 // console.log(res);
 
-
 // function RVS(s){
 //   let newstr =  s.replace(/\s+/g, ' ').trim()
 // return newstr.split(" ").reverse(" ").join(" ")
@@ -111,32 +110,58 @@
 // let res = RVS("a good   example")
 // console.log(res);
 
+// function productExceptSelf(nums){
+//     let n = nums.length
+// const right = new Array(n)
+// const left = new Array(n)
+// left[0]=1
+// right[n-1]=1
+// // left
+// for(let i=1;i<n;i++){
+//      left[i] = left[i-1]*nums[i-1]
+//       console.log(left[i-1],nums[i-1]);
+// }
+// //right
+//  console.log("tthis right loop");
+// for(let i=n-2;i>=0;i--){
+//     right[i] = right[i+1] * nums[i+1]
+//     console.log(right[i+1] ,nums[i+1]);
 
-function productExceptSelf(nums){
-    let n = nums.length
-const right = new Array(n)
-const left = new Array(n)
-left[0]=1
-right[n-1]=1
-// left
-for(let i=1;i<n;i++){
-     left[i] = left[i-1]*nums[i-1]
-      console.log(left[i-1],nums[i-1]);
-} 
-//right
- console.log("tthis right loop");
-for(let i=n-2;i>=0;i--){
-    right[i] = right[i+1] * nums[i+1]
-    console.log(right[i+1] ,nums[i+1]);
-    
+// }
+// const answer = []
+// for(let i=0;i<n;i++){
+//     let product = left[i]*right[i]
+//     answer.push(product)
+// }
+// return answer
+// }
+// let res =  productExceptSelf([1,2,3,4])
+// console.log(res);
+
+// i need return true if array consist 3 number where 1st<2nd<3rd else return false
+// no need in order i can be anywhere
+
+function increasingTriplet(nums){
+  let n = nums.length;
+  let first = Infinity
+  let second = Infinity
+ 
+  for (let i = 0; i < n; i++) {  
+      if(nums[i]<=first){
+        first=nums[i]
+      }
+      else if(nums<=second){
+        second=nums[i]
+      }
+      else{
+          return true
+      }
+  }
+  return false
+ 
 }
-const answer = []
-for(let i=0;i<n;i++){
-    let product = left[i]*right[i]
-    answer.push(product)
-}
-return answer
-}
-let res =  productExceptSelf([1,2,3,4])
+
+let res = increasingTriplet([1,2,1,3]
+
+);
 console.log(res);
-
