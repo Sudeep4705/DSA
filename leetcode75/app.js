@@ -141,27 +141,107 @@
 // i need return true if array consist 3 number where 1st<2nd<3rd else return false
 // no need in order i can be anywhere
 
-function increasingTriplet(nums){
-  let n = nums.length;
-  let first = Infinity
-  let second = Infinity
- 
-  for (let i = 0; i < n; i++) {  
-      if(nums[i]<=first){
-        first=nums[i]
+// function increasingTriplet(nums){
+//   let n = nums.length;
+//   let first = Infinity
+//   let second = Infinity
+
+//   for (let i = 0; i < n; i++) {
+//       if(nums[i]<=first){
+//         first=nums[i]
+//       }
+//       else if(nums<=second){
+//         second=nums[i]
+//       }
+//       else{
+//           return true
+//       }
+//   }
+//   return false
+
+// }
+
+// let res = increasingTriplet([1,2,1,3]
+
+// );
+// console.log(res);
+
+// u have a array of strings
+// i need to begin with empty string
+
+// function compress(chars) {
+//   let s = "";
+//   if (chars.length <= 1) {
+//     s = chars;
+//     return;
+//   }
+//   chars=chars.join("")
+//   let count;
+//   let check = "";
+//       for (let i = 0; i < chars.length; i++) {
+//          check = chars[i];
+//         if(!s.includes(check)){
+//           count = 1;
+//         s += chars[i];
+//         for (let j = i + 1; j < chars.length; j++) {
+//           if (chars[i] === chars[j]){
+//             count++;
+//           }
+//         }
+//         if(count==1){
+//           count=""
+//         }else{
+//           s += count;
+//         }
+
+//         }
+//       }
+
+//          return s.split("")
+
+// }
+// let res = compress(["a","b","b","b","b","b","b","b","b","b","b","b","b"]);
+// console.log(res);
+
+function compress(chars) {
+  let write = 0;
+  let read = 0;
+  let count;
+  let check = "";
+  while (read < chars.length) {
+    let currChar = chars[read];
+    let count = 0;
+    while (read < chars.length && chars[read] === currChar) {
+      read++;
+      count++;
+    }
+    chars[write] = currChar;
+    write++;
+console.log(count);
+
+    if(count>1){
+      let countStr = String(count)
+      for(let i=0;i<countStr.length;i++){
+        chars[write] = countStr[i]
+        write++
       }
-      else if(nums<=second){
-        second=nums[i]
-      }
-      else{
-          return true
-      }
+    }
   }
-  return false
- 
+  return write
 }
-
-let res = increasingTriplet([1,2,1,3]
-
-);
+let res = compress([
+  "a",
+  "b",
+  "b",
+  "b",
+  "b",
+  "b",
+  "b",
+  "b",
+  "b",
+  "b",
+  "b",
+  "b",
+  "b",
+]);
 console.log(res);
