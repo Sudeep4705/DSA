@@ -203,45 +203,79 @@
 // let res = compress(["a","b","b","b","b","b","b","b","b","b","b","b","b"]);
 // console.log(res);
 
-function compress(chars) {
-  let write = 0;
-  let read = 0;
-  let count;
-  let check = "";
-  while (read < chars.length) {
-    let currChar = chars[read];
-    let count = 0;
-    while (read < chars.length && chars[read] === currChar) {
-      read++;
-      count++;
-    }
-    chars[write] = currChar;
-    write++;
-console.log(count);
+// function compress(chars) {
+//   let write = 0;
+//   let read = 0;
+//   let count;
+//   let check = "";
+//   while (read < chars.length) {
+//     let currChar = chars[read];
+//     let count = 0;
+//     while (read < chars.length && chars[read] === currChar) {
+//       read++;
+//       count++;
+//     }
+//     chars[write] = currChar;
+//     write++;
+// console.log(count);
 
-    if(count>1){
-      let countStr = String(count)
-      for(let i=0;i<countStr.length;i++){
-        chars[write] = countStr[i]
-        write++
-      }
-    }
+//     if(count>1){
+//       let countStr = String(count)
+//       for(let i=0;i<countStr.length;i++){
+//         chars[write] = countStr[i]
+//         write++
+//       }
+//     }
+//   }
+//   return write
+// }
+// let res = compress([
+//   "a",
+//   "b",
+//   "b",
+//   "b",
+//   "b",
+//   "b",
+//   "b",
+//   "b",
+//   "b",
+//   "b",
+//   "b",
+//   "b",
+//   "b",
+// ]);
+// console.log(res);
+
+
+// u have a integer array 
+// u need to move the zero to end of the array 
+// i need to maintain the order
+
+
+
+
+
+
+function MoveZeroes(nums){
+let i=0,j=0
+while(i<nums.length){
+  if(nums[i]>0 || nums[i]<0){
+    console.log(nums[i]);
+    
+    let temp = nums[i]
+    nums[i] =nums[j]
+    nums[j]=temp
+    i++
+    j++
+  }else{
+    i++
   }
-  return write
 }
-let res = compress([
-  "a",
-  "b",
-  "b",
-  "b",
-  "b",
-  "b",
-  "b",
-  "b",
-  "b",
-  "b",
-  "b",
-  "b",
-  "b",
-]);
+return nums
+}
+
+
+let res = MoveZeroes([0,1,0,3,12])
 console.log(res);
+
+
