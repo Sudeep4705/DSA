@@ -256,26 +256,85 @@
 
 
 
-function MoveZeroes(nums){
-let i=0,j=0
-while(i<nums.length){
-  if(nums[i]>0 || nums[i]<0){
-    console.log(nums[i]);
+// function MoveZeroes(nums){
+// let i=0,j=0
+// while(i<nums.length){
+//   if(nums[i]>0 || nums[i]<0){
+//     console.log(nums[i]);
     
-    let temp = nums[i]
-    nums[i] =nums[j]
-    nums[j]=temp
-    i++
-    j++
-  }else{
-    i++
+//     let temp = nums[i]
+//     nums[i] =nums[j]
+//     nums[j]=temp
+//     i++
+//     j++
+//   }else{
+//     i++
+//   }
+// }
+// return nums
+// }
+
+
+// let res = MoveZeroes([0,1,0,3,12])
+// console.log(res);
+
+
+// function isSubsequence(s,t){
+// let n = s.length
+//  let count1=0
+//  let count2=0
+//   let arr =[]
+//   let str = ""
+//   for(let i=0;i<s.length;i++){
+//     if(!str.includes(s[i])){
+//       count2++
+//     }else{
+//       str+=s[i]
+//     }
+//     for(let j=0;j<t.length;j++){
+//         if(s[i]===t[j]){
+//           arr.push(j)
+//           count1++
+//         }
+//     }
+//   }
+//   console.log(arr);
+//   if(count1<n){
+//     return false
+//   }
+//   else if(count1!=count2){
+//     return false
+//   }
+  
+//   else{
+//     for(let k=0;k<arr.length;k++){
+//       console.log(arr[k]);
+//       if(arr[k]>arr[k+1]){
+//           return false
+//       }
+//   }
+//   }
+
+//   return true
+  
+  
+
+// }
+
+// let res = isSubsequence("acb","ahbgdc")
+// console.log(res);
+
+
+
+function isSubsequence(s,t){
+  let i=0
+  for(let j=0;j<t.length && i<s.length;j++){
+    if(s[i]==t[j]){
+      i++
+    }
   }
-}
-return nums
+  return  i===s.length
 }
 
-
-let res = MoveZeroes([0,1,0,3,12])
+let res =  isSubsequence("acb","ahbgdc")
 console.log(res);
-
-
