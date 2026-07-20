@@ -133,19 +133,39 @@ const prompt = require("prompt-sync")();
 // }
 // console.log(temp);
 
-let arr = [-1,-2,1,6,8,-8,5,1,1]
-let i=0,j=0
-while(i<arr.length){
-    if(arr[i]<0){
-    let temp = arr[i]
-    arr[i]=arr[j]
-    arr[j]=temp
-    j++
+// let arr = [-1,-2,1,6,8,-8,5,1,1]
+// let i=0,j=0
+// while(i<arr.length){
+//     if(arr[i]<0){
+//     let temp = arr[i]
+//     arr[i]=arr[j]
+//     arr[j]=temp
+//     j++
+//     }
+//     i++
+    
+    
+// }
+// console.log(arr);
+
+function  flattenArray(arr){
+let arr1 = []
+    for(let i=0;i<arr.length;i++){
+        if(Array.isArray(arr[i])){
+           const flat =  flattenArray(arr[i])
+           for(let j=0;j<flat.length;j++){
+            arr1.push(flat[j])
+           }
+        }else{
+            arr1.push(arr[i])
+        }
+    
     }
-    i++
-    
-    
+    return arr1
 }
-console.log(arr);
+
+let res = flattenArray([1,[2,[3,4],5],6])
+console.log(res);
+
 
 
