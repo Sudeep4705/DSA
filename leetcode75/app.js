@@ -246,22 +246,16 @@
 // ]);
 // console.log(res);
 
-
-// u have a integer array 
-// u need to move the zero to end of the array 
+// u have a integer array
+// u need to move the zero to end of the array
 // i need to maintain the order
-
-
-
-
-
 
 // function MoveZeroes(nums){
 // let i=0,j=0
 // while(i<nums.length){
 //   if(nums[i]>0 || nums[i]<0){
 //     console.log(nums[i]);
-    
+
 //     let temp = nums[i]
 //     nums[i] =nums[j]
 //     nums[j]=temp
@@ -274,10 +268,8 @@
 // return nums
 // }
 
-
 // let res = MoveZeroes([0,1,0,3,12])
 // console.log(res);
-
 
 // function isSubsequence(s,t){
 // let n = s.length
@@ -305,7 +297,7 @@
 //   else if(count1!=count2){
 //     return false
 //   }
-  
+
 //   else{
 //     for(let k=0;k<arr.length;k++){
 //       console.log(arr[k]);
@@ -316,25 +308,68 @@
 //   }
 
 //   return true
-  
-  
 
 // }
 
 // let res = isSubsequence("acb","ahbgdc")
 // console.log(res);
 
+// function isSubsequence(s,t){
+//   let i=0
+//   for(let j=0;j<t.length && i<s.length;j++){
+//     if(s[i]==t[j]){
+//       i++
+//     }
+//   }
+//   return  i===s.length
+// }
 
+// let res =  isSubsequence("acb","ahbgdc")
+// console.log(res);
 
-function isSubsequence(s,t){
-  let i=0
-  for(let j=0;j<t.length && i<s.length;j++){
-    if(s[i]==t[j]){
-      i++
-    }
+// function lcs(s){
+// let str1 =""
+// let str2 = ""
+// let i=0;
+// while(i<s.length){
+//     if(!str1.includes(s[i])){
+//         str1+=s[i]
+//         i++
+//     }else{
+//       str2+=s[i]
+//       i++
+//     }
+// }
+// if(str1.length==str2.length){
+//     return str1.length
+// }
+// }
+// let res = lcs("au")
+// console.log(res);
+
+function check (nums){
+let breaks = 0
+for(let i=0;i<nums.length-2;i++){
+  if(nums[i]>nums[i+1]){
+    breaks++
   }
-  return  i===s.length
 }
 
-let res =  isSubsequence("acb","ahbgdc")
+if(nums[nums.length-1]>nums[0]){
+  breaks++
+}
+ if(breaks<=1){
+  return true
+ } 
+ else{
+  return false
+ }
+  
+}
+
+let res = check([3,4,5,1,2])
 console.log(res);
+
+
+
+ 

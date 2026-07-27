@@ -148,24 +148,27 @@ const prompt = require("prompt-sync")();
 // }
 // console.log(arr);
 
-function  flattenArray(arr){
-let arr1 = []
-    for(let i=0;i<arr.length;i++){
-        if(Array.isArray(arr[i])){
-           const flat =  flattenArray(arr[i])
-           for(let j=0;j<flat.length;j++){
-            arr1.push(flat[j])
-           }
-        }else{
-            arr1.push(arr[i])
-        }
+// function  flattenArray(arr){
+// let arr1 = []
+//     for(let i=0;i<arr.length;i++){
+//         if(Array.isArray(arr[i])){
+//            const flat =  flattenArray(arr[i])
+//            for(let j=0;j<flat.length;j++){
+//             arr1.push(flat[j])
+//            }
+//         }else{
+//             arr1.push(arr[i])
+//         }
     
-    }
-    return arr1
-}
+//     }
+//     return arr1
+// }
 
-let res = flattenArray([1,[2,[3,4],5],6])
-console.log(res);
+// let res = flattenArray([1,[2,[3,4],5],6])
+// console.log(res);
+
+// two 
+
 
 
 
