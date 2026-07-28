@@ -371,16 +371,42 @@
 // console.log(res);
 
 
-function missingNumber(nums){
-for(let i=0;i<=nums.length;i++){
- if(!nums.includes(i)){
-    return i
-  }
-}
+// function missingNumber(nums){
+// for(let i=0;i<=nums.length;i++){
+//  if(!nums.includes(i)){
+//     return i
+//   }
+// }
+// }
 
-}
-
-let res = missingNumber([3,0,1])
-console.log(res);
+// let res = missingNumber([3,0,1])
+// console.log(res);
 
  
+
+function findMaxConsecutiveOnes(nums){
+    let min = 0
+    let arr = []
+    for(let i =0;i<nums.length;i++){
+      if(nums[i]==0){
+        if(min<arr.length){
+          min=arr.length
+          arr = []
+        }else{
+          arr=[]
+        }
+       
+      }else{
+        arr.push(nums[i])
+      }
+    }
+    if(arr.length>min){
+      min = arr.length
+    }
+return min
+
+   
+}
+
+let res = findMaxConsecutiveOnes([1,0,1,1,0,1])
+console.log(res);
