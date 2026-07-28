@@ -347,29 +347,40 @@
 // let res = lcs("au")
 // console.log(res);
 
-function check (nums){
-let breaks = 0
-for(let i=0;i<nums.length-2;i++){
-  if(nums[i]>nums[i+1]){
-    breaks++
+// function check (nums){
+// let breaks = 0
+// for(let i=0;i<nums.length;i++){
+//   if(nums[i]>nums[i+1]){
+//     breaks++
+//   }
+// }
+
+// if(nums[nums.length-1]>nums[0]){
+//   breaks++
+// }
+//  if(breaks<=1){
+//   return true
+//  } 
+//  else{
+//   return false
+//  }
+  
+// }
+
+// let res = check([3,4,5,1,2])
+// console.log(res);
+
+
+function missingNumber(nums){
+for(let i=0;i<=nums.length;i++){
+ if(!nums.includes(i)){
+    return i
   }
 }
 
-if(nums[nums.length-1]>nums[0]){
-  breaks++
-}
- if(breaks<=1){
-  return true
- } 
- else{
-  return false
- }
-  
 }
 
-let res = check([3,4,5,1,2])
+let res = missingNumber([3,0,1])
 console.log(res);
-
-
 
  
