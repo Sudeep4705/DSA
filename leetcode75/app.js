@@ -360,16 +360,15 @@
 // }
 //  if(breaks<=1){
 //   return true
-//  } 
+//  }
 //  else{
 //   return false
 //  }
-  
+
 // }
 
 // let res = check([3,4,5,1,2])
 // console.log(res);
-
 
 // function missingNumber(nums){
 // for(let i=0;i<=nums.length;i++){
@@ -382,31 +381,41 @@
 // let res = missingNumber([3,0,1])
 // console.log(res);
 
- 
+// function findMaxConsecutiveOnes(nums){
+//     let min = 0
+//     let arr = []
+//     for(let i =0;i<nums.length;i++){
+//       if(nums[i]==0){
+//         if(min<arr.length){
+//           min=arr.length
+//           arr = []
+//         }
+//       }else{
+//         arr.push(nums[i])
+//       }
+//     }
+//     if(arr.length>min){
+//       min = arr.length
+//     }
+// return min
+// }
 
-function findMaxConsecutiveOnes(nums){
-    let min = 0
-    let arr = []
-    for(let i =0;i<nums.length;i++){
-      if(nums[i]==0){
-        if(min<arr.length){
-          min=arr.length
-          arr = []
-        }else{
-          arr=[]
+// let res = findMaxConsecutiveOnes([1,0,1,1,0,1])
+// console.log(res);
+
+function singleNumber(nums) {
+let count;
+for(let i=0;i<nums.length;i++){
+            count=0;
+    for(let j=0;j<nums.length;j++){
+        if(nums[i]===nums[j]){
+            count++
         }
-       
-      }else{
-        arr.push(nums[i])
-      }
     }
-    if(arr.length>min){
-      min = arr.length
+    if(count===1){
+        return nums[i]
     }
-return min
-
-   
 }
-
-let res = findMaxConsecutiveOnes([1,0,1,1,0,1])
+}
+let res = singleNumber([4,1,2,1,2]);
 console.log(res);
