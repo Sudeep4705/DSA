@@ -403,19 +403,38 @@
 // let res = findMaxConsecutiveOnes([1,0,1,1,0,1])
 // console.log(res);
 
-function singleNumber(nums) {
-let count;
+// function singleNumber(nums) {
+// let count;
+// for(let i=0;i<nums.length;i++){
+//             count=0;
+//     for(let j=0;j<nums.length;j++){
+//         if(nums[i]===nums[j]){
+//             count++
+//         }
+//     }
+//     if(count===1){
+//         return nums[i]
+//     }
+// }
+// }
+// let res = singleNumber([4,1,2,1,2]);
+// console.log(res);
+
+
+
+function sortArray(nums){
 for(let i=0;i<nums.length;i++){
-            count=0;
-    for(let j=0;j<nums.length;j++){
-        if(nums[i]===nums[j]){
-            count++
-        }
-    }
-    if(count===1){
-        return nums[i]
+    for(let j=i+1;j<nums.length;j++){
+            if(nums[i]>nums[j]){
+                let temp = nums[i]
+                nums[i]=nums[j]
+                nums[j]=temp
+            }
+    
     }
 }
+return nums
 }
-let res = singleNumber([4,1,2,1,2]);
+
+let res = sortArray([5,2,3,1])
 console.log(res);
