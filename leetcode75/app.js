@@ -422,18 +422,63 @@
 
 
 
-function sortArray(nums){
-for(let i=0;i<nums.length;i++){
-    for(let j=i+1;j<nums.length;j++){
-            if(nums[i]>nums[j]){
-                let temp = nums[i]
-                nums[i]=nums[j]
-                nums[j]=temp
-            }
+// function sortArray(nums){
+// for(let i=0;i<nums.length;i++){
+//     for(let j=i+1;j<nums.length;j++){
+//             if(nums[i]>nums[j]){
+//                 let temp = nums[i]
+//                 nums[i]=nums[j]
+//                 nums[j]=temp
+//             }
     
+//     }
+// }
+// return nums
+// }
+
+// let res = sortArray([5,2,3,1])
+// console.log(res);
+
+
+
+function sortArray(nums){
+     if(nums.length<=1)return nums
+    return mergesort(nums)
+}
+function mergesort(nums){
+   
+    if(nums.length<=1){
+        return nums
+    }
+    const mid = Math.floor(nums.length/2)
+    const left = mergesort(nums.slice(0,mid))
+    const right = mergesort(nums.slice(mid))
+
+    return merge(left,right)
+}
+
+function merge(left,right){
+let i=0,j=0
+let result = []
+
+while(i<left.length && j<right.length){
+    if(left[i]<=right[j]){
+        result.push(left[i])
+        i++
+    }else{
+         result.push(right[j])
+         j++
     }
 }
-return nums
+while(i<left.length){
+    result.push(left[i])
+    i++
+}
+while(j<right.length){
+    result.push(right[j])
+    j++
+}
+return result
 }
 
 let res = sortArray([5,2,3,1])
