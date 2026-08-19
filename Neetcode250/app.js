@@ -66,3 +66,38 @@
 
 // let res = hasDuplicate([1, 2, 3, 4])
 // console.log(res);
+
+// function longestCommonPrefix(strs){
+// strs = strs.join(" ")
+// for(let i=0;i<strs.length;i++){
+//     for(let j=0;j<strs.length;j++){
+        
+        
+//     }
+    
+// }
+
+     
+
+// }
+
+// let res = longestCommonPrefix(["bat","bag","bank","band"])
+// console.log(res);
+
+function  removeElement(nums,val){
+let i=0
+let j=0
+while(i<nums.length){
+if(nums[i]!=val){
+    let temp = nums[i]
+    nums[i]=nums[j]
+    nums[j] = temp
+    j++
+}
+i++
+}
+return nums.slice(0,j)
+}
+let res = removeElement([3,2,2,3],3)
+console.log(res);
+
