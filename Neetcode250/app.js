@@ -86,22 +86,49 @@
 // console.log(res);
 
 
-function longestCommonPrefix(strs){
-let  prefix = strs[0]
+// function longestCommonPrefix(strs){
+// let  prefix = strs[0]
 
-for(let i=1;i<strs.length;i++){
-    console.log("ele",strs[i]);
-    while(!strs[i].startsWith(prefix)){
-        prefix = prefix.slice(0,-1)
-        console.log(prefix);
+// for(let i=1;i<strs.length;i++){
+//     console.log("ele",strs[i]);
+//     while(!strs[i].startsWith(prefix)){
+//         prefix = prefix.slice(0,-1)
+//         console.log(prefix);
         
-        if(prefix==""){
-            return ""
-        }
-    }
-}
-return prefix
-}
+//         if(prefix==""){
+//             return ""
+//         }
+//     }
+// }
+// return prefix
+// }
 
-let res = longestCommonPrefix(["bat","bag","bank","band"])
-console.log(res);
+// let res = longestCommonPrefix(["bat","bag","bank","band"])
+// console.log(res);
+
+
+// function  majorityElement(nums){
+//  let n = nums.length
+// let map = new Map()
+
+// for(let i=0;i<nums.length;i++){
+//     if(!map.has(nums[i])){
+//         map.set(nums[i],1)
+//     }else{
+//        map.set(nums[i],map.get(nums[i])+1)
+//     }
+// }
+
+
+// for(let j=0;j<n;j++){
+// let value = map.get(nums[j])
+// if(value>n/2){
+//     return nums[j]
+// }
+    
+    
+// }
+// }
+
+// let res =  majorityElement([2,2,1,1,1,2,2])
+// console.log(res);
