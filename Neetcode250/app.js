@@ -232,28 +232,27 @@
 // let res = productExceptSelf([1, 2, 4, 6]);
 // console.log(res);
 
-function productExceptSelf(nums) {
-  let n = nums.length;
-  let left = new Array(n);
-  let right = new Array(n);
+// function productExceptSelf(nums) {
+//   let n = nums.length;
+//   let left = new Array(n);
+//   let right = new Array(n);
 
-  left[0]=1
-  right[n-1]=1
+//   left[0] = 1;
+//   right[n - 1] = 1;
 
+//   for (let i = 1; i < n; i++) {
+//     left[i] = left[i - 1] * nums[i - 1];
+//   }
+//   for (let j = n - 2; j >= 0; j--) {
+//     right[j] = right[j + 1] * nums[j + 1];
+//   }
+//   let answer = [];
+//   for (let i = 0; i < n; i++) {
+//     let product = left[i] * right[i];
+//     answer.push(product);
+//   }
+//   return answer;
+// }
 
-  for(let i=1;i<n;i++){
-    left[i]=left[i-1]*nums[i-1]
-  }
-  for(let j=n-2;j>=0;j--){
-    right[j]=right[j+1]*nums[j+1]
-  }
-let answer=[]
-  for(let i=0;i<n;i++){
-    let product = left[i]*right[i]
-    answer.push(product)
-  }
-  return answer
-}
-
-let res = productExceptSelf([1, 2, 4, 6]);
-console.log(res);
+// let res = productExceptSelf([1, 2, 4, 6]);
+// console.log(res);
