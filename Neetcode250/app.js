@@ -258,20 +258,48 @@
 // console.log(res);
 
 // O(n2)
+// function longestConsecutive(nums){
+// let res = 0
+// const store = new Set(nums)
+// for(let num of nums){
+//     let streak = 0
+//     let curr = num
+//     while(store.has(curr)){
+//         streak++
+//         curr++
+//     }
+//     res = Math.max(res,streak)
+// }
+
+// return res
+// }
+// let res =  longestConsecutive([2,20,4,10,3,4,5])
+// console.log(res);
+
+
 function longestConsecutive(nums){
-let res = 0
-const store = new Set(nums)
-for(let num of nums){
-    let streak = 0
-    let curr = num
-    while(store.has(curr)){
-        streak++
-        curr++
+if(nums.length===0){
+    return  0
+}
+nums.sort((a,b)=> a-b)
+
+let longest = 1
+let current = 1
+
+for(let i=1;i<nums.length;i++){
+    if(nums[i]===nums[i-1]){
+        continue
     }
-    res = Math.max(res,streak)
+    if(nums[i]===nums[i-1]+1){
+        current++
+    }
+    else{
+        current=1
+    }
+    longest= Math.max(longest,current)
+}
+return longest
 }
 
-return res
-}
-let res =  longestConsecutive([2,20,4,10,3,4,5])
+let res = longestConsecutive([2,20,4,10,3,4,5])
 console.log(res);
