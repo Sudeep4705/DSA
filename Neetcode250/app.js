@@ -256,3 +256,22 @@
 
 // let res = productExceptSelf([1, 2, 4, 6]);
 // console.log(res);
+
+// O(n2)
+function longestConsecutive(nums){
+let res = 0
+const store = new Set(nums)
+for(let num of nums){
+    let streak = 0
+    let curr = num
+    while(store.has(curr)){
+        streak++
+        curr++
+    }
+    res = Math.max(res,streak)
+}
+
+return res
+}
+let res =  longestConsecutive([2,20,4,10,3,4,5])
+console.log(res);
