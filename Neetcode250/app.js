@@ -276,7 +276,7 @@
 // let res =  longestConsecutive([2,20,4,10,3,4,5])
 // console.log(res);
 
-
+// O(n log n)
 function longestConsecutive(nums){
 if(nums.length===0){
     return  0
