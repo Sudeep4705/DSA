@@ -277,29 +277,59 @@
 // console.log(res);
 
 // O(n log n)
-function longestConsecutive(nums){
-if(nums.length===0){
-    return  0
-}
-nums.sort((a,b)=> a-b)
+// function longestConsecutive(nums){
+// if(nums.length===0){
+//     return  0
+// }
+// nums.sort((a,b)=> a-b)
 
-let longest = 1
-let current = 1
+// let longest = 1
+// let current = 1
 
-for(let i=1;i<nums.length;i++){
-    if(nums[i]===nums[i-1]){
-        continue
+// for(let i=1;i<nums.length;i++){
+//     if(nums[i]===nums[i-1]){
+//         continue
+//     }
+//     if(nums[i]===nums[i-1]+1){
+//         current++
+//     }
+//     else{
+//         current=1
+//     }
+//     longest= Math.max(longest,current)
+// }
+// return longest
+// }
+
+// let res = longestConsecutive([2,20,4,10,3,4,5])
+// console.log(res);
+
+
+function  majorityElement(nums){
+let map = new Map()
+let n = nums.length
+
+for(let i=0;i<nums.length;i++){
+    if(!map.has(nums[i])){
+        map.set(nums[i],1)
+    }else{
+       map.set(nums[i],map.get(nums[i])+1)
     }
-    if(nums[i]===nums[i-1]+1){
-        current++
-    }
-    else{
-        current=1
-    }
-    longest= Math.max(longest,current)
-}
-return longest
 }
 
-let res = longestConsecutive([2,20,4,10,3,4,5])
+let store = new Set()
+for(let j=0;j<nums.length;j++){
+    let value =  map.get(nums[j])
+    if(value>n/3){
+        store.add(nums[j])
+    }
+}
+
+const arr = Array.from(store)
+return arr
+
+
+}
+
+let res = majorityElement([5,2,3,2,2,2,2,5,5,5])
 console.log(res);
