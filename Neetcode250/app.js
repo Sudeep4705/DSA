@@ -305,31 +305,52 @@
 // console.log(res);
 
 
-function  majorityElement(nums){
-let map = new Map()
-let n = nums.length
+// function  majorityElement(nums){
+// let map = new Map()
+// let n = nums.length
 
-for(let i=0;i<nums.length;i++){
-    if(!map.has(nums[i])){
-        map.set(nums[i],1)
-    }else{
-       map.set(nums[i],map.get(nums[i])+1)
+// for(let i=0;i<nums.length;i++){
+//     if(!map.has(nums[i])){
+//         map.set(nums[i],1)
+//     }else{
+//        map.set(nums[i],map.get(nums[i])+1)
+//     }
+// }
+
+// let store = new Set()
+// for(let j=0;j<nums.length;j++){
+//     let value =  map.get(nums[j])
+//     if(value>n/3){
+//         store.add(nums[j])
+//     }
+// }
+
+// const arr = Array.from(store)
+// return arr
+
+
+// }
+
+// let res = majorityElement([5,2,3,2,2,2,2,5,5,5])
+// console.log(res);
+
+// async function test() {
+//     console.log("A");
+//     await fetch("https://example.com");
+//     console.log("B");
+// }
+
+
+function  maxProfit(prices){
+let sum = 0
+let profit;
+for(let i=0;i<prices.length;i++){
+    if(prices[i]<prices[i+1]){
+        profit = prices[i+1]-prices[i]
+        sum+=profit
     }
 }
-
-let store = new Set()
-for(let j=0;j<nums.length;j++){
-    let value =  map.get(nums[j])
-    if(value>n/3){
-        store.add(nums[j])
-    }
+return sum
 }
-
-const arr = Array.from(store)
-return arr
-
-
-}
-
-let res = majorityElement([5,2,3,2,2,2,2,5,5,5])
+let res =  maxProfit([7,1,5,3,6,4])
 console.log(res);
