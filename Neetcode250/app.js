@@ -341,16 +341,16 @@
 // }
 
 
-function  maxProfit(prices){
-let sum = 0
-let profit;
-for(let i=0;i<prices.length;i++){
-    if(prices[i]<prices[i+1]){
-        profit = prices[i+1]-prices[i]
-        sum+=profit
-    }
-}
-return sum
-}
-let res =  maxProfit([7,1,5,3,6,4])
-console.log(res);
+// function  maxProfit(prices){
+// let sum = 0
+// let profit;
+// for(let i=0;i<prices.length;i++){
+//     if(prices[i]<prices[i+1]){
+//         profit = prices[i+1]-prices[i]
+//         sum+=profit
+//     }
+// }
+// return sum
+// }
+// let res =  maxProfit([7,1,5,3,6,4])
+// console.log(res);
