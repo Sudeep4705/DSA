@@ -354,3 +354,18 @@
 // }
 // let res =  maxProfit([7,1,5,3,6,4])
 // console.log(res);
+
+
+function firstMissingPositive(nums){
+nums =  nums.sort((a,b)=>a-b)
+let missing = 1
+for(const num of nums){
+    if(num>0 && num===missing){
+        missing++
+    }
+}
+return missing
+}
+
+let res = firstMissingPositive([1,2,4,5,6,3,1])
+console.log(res);
