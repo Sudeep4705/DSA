@@ -334,11 +334,7 @@
 // let res = majorityElement([5,2,3,2,2,2,2,5,5,5])
 // console.log(res);
 
-// async function test() {
-//     console.log("A");
-//     await fetch("https://example.com");
-//     console.log("B");
-// }
+
 
 
 // function  maxProfit(prices){
@@ -356,16 +352,41 @@
 // console.log(res);
 
 
-function firstMissingPositive(nums){
-nums =  nums.sort((a,b)=>a-b)
-let missing = 1
-for(const num of nums){
-    if(num>0 && num===missing){
-        missing++
+// function firstMissingPositive(nums){
+// nums =  nums.sort((a,b)=>a-b)
+// let missing = 1
+// for(const num of nums){
+//     if(num>0 && num===missing){
+//         missing++
+//     }
+// }
+// return missing
+// }
+// let res = firstMissingPositive([1,2,4,5,6,3,1])
+// console.log(res);
+
+
+// Stack
+function calPoints(operations){
+let Stack = []
+for(const op of operations){
+    if(op==="+"){
+            let top = Stack.pop()
+            let newTop =top + Stack[Stack.length-1]
+            Stack.push(top)
+            Stack.push(newTop)
+    }
+    else if(op==="C"){
+        Stack.pop()
+    }else if(op==="D"){
+        let newTop =  2 * Stack[Stack.length-1]
+        Stack.push(newTop)
+    }else{
+        Stack.push(parseInt(op))
     }
 }
-return missing
-}
 
-let res = firstMissingPositive([1,2,4,5,6,3,1])
+return Stack.reduce((a,b)=>a+b,0)
+}
+let res =  calPoints(["1","2","+","C","5","D"])
 console.log(res);
