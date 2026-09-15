@@ -367,26 +367,39 @@
 
 
 // Stack
-function calPoints(operations){
-let Stack = []
-for(const op of operations){
-    if(op==="+"){
-            let top = Stack.pop()
-            let newTop =top + Stack[Stack.length-1]
-            Stack.push(top)
-            Stack.push(newTop)
-    }
-    else if(op==="C"){
-        Stack.pop()
-    }else if(op==="D"){
-        let newTop =  2 * Stack[Stack.length-1]
-        Stack.push(newTop)
-    }else{
-        Stack.push(parseInt(op))
-    }
-}
+// function calPoints(operations){
+// let Stack = []
+// for(const op of operations){
+//     if(op==="+"){
+//             let top = Stack.pop()
+//             let newTop =top + Stack[Stack.length-1]
+//             Stack.push(top)
+//             Stack.push(newTop)
+//     }
+//     else if(op==="C"){
+//         Stack.pop()
+//     }else if(op==="D"){
+//         let newTop =  2 * Stack[Stack.length-1]
+//         Stack.push(newTop)
+//     }else{
+//         Stack.push(parseInt(op))
+//     }
+// }
 
-return Stack.reduce((a,b)=>a+b,0)
+// return Stack.reduce((a,b)=>a+b,0)
+// }
+// let res =  calPoints(["1","2","+","C","5","D"])
+// console.log(res);
+
+// oN2
+function isValid(s){
+while(s.includes("()") || s.includes("[]") || s.includes("{}")){
+  s=s.replace("()","")
+  s=s.replace("[]","")
+  s=s.replace("{}","")
 }
-let res =  calPoints(["1","2","+","C","5","D"])
+return s === ""
+}
+let res = isValid("([{}])")
 console.log(res);
+
