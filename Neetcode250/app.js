@@ -392,14 +392,44 @@
 // console.log(res);
 
 // oN2
+// function isValid(s){
+// while(s.includes("()") || s.includes("[]") || s.includes("{}")){
+//   s=s.replace("()","")
+//   s=s.replace("[]","")
+//   s=s.replace("{}","")
+// }
+// return s === ""
+// }
+// let res = isValid("([{}])")
+// console.log(res);
+
 function isValid(s){
-while(s.includes("()") || s.includes("[]") || s.includes("{}")){
-  s=s.replace("()","")
-  s=s.replace("[]","")
-  s=s.replace("{}","")
+let stack = []
+let obj = {
+    ")":"(",
+    "]":"[",
+    "}":"{"
 }
-return s === ""
+for(let c of s){
+    console.log(obj[c]);
+  if(obj[c]){
+    console.log("in")
+    if(stack[stack.length-1]===obj[c]){
+        console.log("key");
+    }else{
+        return false
+    }
+  }else{
+    stack.push(c)
+  }
 }
-let res = isValid("([{}])")
+return stack.length===0
+}
+let res =isValid("([{}])")
 console.log(res);
+
+
+
+
+
 
