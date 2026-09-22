@@ -403,31 +403,81 @@
 // let res = isValid("([{}])")
 // console.log(res);
 
-function isValid(s){
-let stack = []
-let obj = {
-    ")":"(",
-    "]":"[",
-    "}":"{"
-}
-for(let c of s){
-    console.log(obj[c]);
-  if(obj[c]){
-    console.log("in")
-    if(stack[stack.length-1]===obj[c]){
-        console.log("key");
-    }else{
-        return false
-    }
+// function isValid(s){
+// let stack = []
+// let obj = {
+//     ")":"(",
+//     "]":"[",
+//     "}":"{"
+// }
+// for(let c of s){
+//     console.log(obj[c]);
+//   if(obj[c]){
+//     console.log("in")
+//     if(stack[stack.length-1]===obj[c]){
+//         console.log("key");
+//     }else{
+//         return false
+//     }
+//   }else{
+//     stack.push(c)
+//   }
+// }
+// return stack.length===0
+// }
+// let res =isValid("([{}])")
+// console.log(res);
+
+
+// function isPalindrome(s){
+// let str =  s.replace(/[^a-zA-Z0-9]/g,"")
+// str =str.toLowerCase()
+// let i=0,j=str.length-1
+// while(i<j){
+//   if(str[i]!==str[j]){
+//     return false
+//   }
+//   i++
+//   j--
+// }
+// return true
+
+// }
+
+// let res = isPalindrome("Was it a car or a cat I saw?")
+// console.log(res);
+
+
+function merge(nums1, m, nums2, n){
+let copy = nums1.slice(0,m)
+nums1 = new Array(m+n)
+let i=0,j=0,k=0
+while(i<m && j<n){
+  if(copy[i]<nums2[j]){
+    nums1[k]=copy[i]
+    i++
+    k++
   }else{
-    stack.push(c)
+    nums1[k]=nums2[j]
+    j++
+    k++
   }
 }
-return stack.length===0
+while(i<m){
+  nums1[k]=copy[i]
+  i++
+  k++
 }
-let res =isValid("([{}])")
-console.log(res);
+while(j<n){
+  nums1[k]=copy[j]
+  j++
+  k++
+}
+return nums1
+}
 
+let res = merge([10,20,20,40,0,0],4,[1,2],2)
+console.log(res);
 
 
 
