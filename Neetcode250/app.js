@@ -448,36 +448,49 @@
 // console.log(res);
 
 
-function merge(nums1, m, nums2, n){
-let copy = nums1.slice(0,m)
-nums1 = new Array(m+n)
-let i=0,j=0,k=0
-while(i<m && j<n){
-  if(copy[i]<nums2[j]){
-    nums1[k]=copy[i]
-    i++
-    k++
-  }else{
-    nums1[k]=nums2[j]
-    j++
-    k++
-  }
-}
-while(i<m){
-  nums1[k]=copy[i]
-  i++
-  k++
-}
-while(j<n){
-  nums1[k]=copy[j]
-  j++
-  k++
-}
-return nums1
+// function merge(nums1, m, nums2, n){
+// let copy = nums1.slice(0,m)
+// nums1 = new Array(m+n)
+// let i=0,j=0,k=0
+// while(i<m && j<n){
+//   if(copy[i]<nums2[j]){
+//     nums1[k]=copy[i]
+//     i++
+//     k++
+//   }else{
+//     nums1[k]=nums2[j]
+//     j++
+//     k++
+//   }
+// }
+// while(i<m){
+//   nums1[k]=copy[i]
+//   i++
+//   k++
+// }
+// while(j<n){
+//   nums1[k]=copy[j]
+//   j++
+//   k++
+// }
+// return nums1
+// }
+
+// let res = merge([10,20,20,40,0,0],4,[1,2],2)
+// console.log(res);
+
+// Queue
+function Queue(num){
+let q1 = []
+q1.push(num)
+console.log(q1);
+
 }
 
-let res = merge([10,20,20,40,0,0],4,[1,2],2)
-console.log(res);
+Queue(20)
+
+
+
 
 
 

@@ -16,17 +16,29 @@
 
 // user.greet();
 
-const user1 = {
+// const user1 = {
+//     name: "Sudeep",
+//     greet() {
+//         console.log("Hello " + this.name);
+//     }
+// };
+// const user2 = {
+//     name: "Goat",
+//     greet() {
+//         console.log("Hello " + this.name);
+//     }
+// };
+// user1.greet()
+// user2.greet()
+
+const user = {
     name: "Sudeep",
-    greet() {
-        console.log("Hello " + this.name);
+
+
+    arrow: () => {
+        console.log(this.name);
     }
 };
-const user2 = {
-    name: "Goat",
-    greet() {
-        console.log("Hello " + this.name);
-    }
-};
-user1.greet()
-user2.greet()
+
+
+user.arrow();
