@@ -479,20 +479,114 @@
 // let res = merge([10,20,20,40,0,0],4,[1,2],2)
 // console.log(res);
 
-// Queue
-function Queue(num){
-let q1 = []
-q1.push(num)
-console.log(q1);
 
+
+
+// function validPalindrome(s){
+//  let str = s.replace(/[^a-zA-Z0-9]/g,"")
+//  str = str.toLowerCase()
+//  let i=0,j=str.length-1
+//  let el;
+// while(i<j){
+// if(str[i]!=str[j]){
+//      el=str[j]
+// }
+// i++
+// j--
+// }
+
+// let newstr = ""
+// for(let i=0;i<str.length;i++){
+//     if(str[i]!==el){
+//         newstr+=s[i]
+//     }
+// }
+
+// let k=0,m=newstr.length-1
+// while(k<m){
+//     if(newstr[k]!==newstr[m]){
+//         return false
+//     }
+//     k++
+//     m--
+// }
+// return true
+
+// }
+// let res = validPalindrome("abbda")
+// console.log(res);
+
+
+// function validPalindrome(s) {
+//     let i = 0;
+//     let j = s.length - 1;
+
+//     while (i < j) {
+
+//         if (s[i] !== s[j]) {
+
+//             // Try deleting the left character
+//             let left = isPalindrome(s, i + 1, j);
+
+//             // Try deleting the right character
+//             let right = isPalindrome(s, i, j - 1);
+
+//             return left || right;
+//         }
+
+//         i++;
+//         j--;
+//     }
+
+//     return true;
+// }
+
+
+// function isPalindrome(s, i, j) {
+
+//     while (i < j) {
+
+//         if (s[i] !== s[j]) {
+//             return false;
+//         }
+
+//         i++;
+//         j--;
+//     }
+
+//     return true;
+// }
+
+
+// let res = validPalindrome("abbda");
+
+// console.log(res);
+
+
+
+function mergeAlternately(word1, word2){
+let newstr = new Array(word1.length+word2.length)
+let m = word1.length
+let n = word2.length
+let i=0,j=0
+while(i<m && j<n){
+    newstr.push(word1[i],word2[j])
+}
+i++
+j++
+while(i<m){
+    newstr.push(word1[i])
+    i++
+}
+while(j<n){
+    newstr.push(word2[j])
+    j++
 }
 
-Queue(20)
+return newstr.join("")
+}
 
-
-
-
-
-
+let res = mergeAlternately("ab","abbxxc")
+console.log(res);
 
 
