@@ -30,15 +30,47 @@
 // };
 // user1.greet()
 // user2.greet()
+// const user = {
+//     name: "Sudeep",
+//     arrow: () => {
+//         console.log(this.name);
+//     }
+// };
+// user.arrow();
+function first(callback) {
+    console.log("first");
+    callback();
+}
 
-const user = {
-    name: "Sudeep",
+function second(callback) {
+    console.log("second");
+    callback();
+}
+
+function third(callback) {
+    console.log("third");
+    callback();
+}
+
+function fourth(callback) {
+    console.log("fourth");
+    callback();
+}
+
+function fifth() {
+    console.log("fifth");
+}
 
 
-    arrow: () => {
-        console.log(this.name);
-    }
-};
+first(function () {
 
+    second(function () {
 
-user.arrow();
+        third(function () {
+
+            fourth(function () {
+                fifth();
+            });
+        });
+    });
+});

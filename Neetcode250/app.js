@@ -564,29 +564,55 @@
 
 
 
-function mergeAlternately(word1, word2){
-let newstr = new Array(word1.length+word2.length)
-let m = word1.length
-let n = word2.length
-let i=0,j=0
-while(i<m && j<n){
-    newstr.push(word1[i],word2[j])
-}
-i++
-j++
-while(i<m){
-    newstr.push(word1[i])
-    i++
-}
-while(j<n){
-    newstr.push(word2[j])
-    j++
-}
+// function mergeAlternately(word1, word2){
+// let newstr = new Array(word1.length+word2.length)
+// let m = word1.length
+// let n = word2.length
+// let i=0,j=0
+// while(i<m && j<n){
+//     newstr.push(word1[i],word2[j])
+// }
+// i++
+// j++
+// while(i<m){
+//     newstr.push(word1[i])
+//     i++
+// }
+// while(j<n){
+//     newstr.push(word2[j])
+//     j++
+// }
 
-return newstr.join("")
-}
+// return newstr.join("")
+// }
 
-let res = mergeAlternately("ab","abbxxc")
+// let res = mergeAlternately("ab","abbxxc")
+// console.log(res);
+
+
+// function  twoSum(numbers,target){
+// for(let i=0;i<numbers.length;i++){
+//     for(let j=1;j<numbers.length;j++){
+//         if(numbers[i]+numbers[j]=== target){
+//             return [i+1,j+1]
+//         }
+//     }
+// }
+// return []
+// }
+// let res = twoSum([1,2,3,4],3)
+// console.log(res);
+
+function twoSum(numbers,target){
+let map = new Map()
+for(let i=0;i<numbers.length;i++){
+    let el = target - numbers[i]
+    if(map.has(el)){
+        return [map.get(el),i+1]
+    }
+    map.set(numbers[i],i+1)
+}
+}
+let res = twoSum([1,2,3,4],3)
 console.log(res);
-
 
