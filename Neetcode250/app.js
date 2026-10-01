@@ -603,16 +603,38 @@
 // let res = twoSum([1,2,3,4],3)
 // console.log(res);
 
-function twoSum(numbers,target){
-let map = new Map()
-for(let i=0;i<numbers.length;i++){
-    let el = target - numbers[i]
-    if(map.has(el)){
-        return [map.get(el),i+1]
+// function twoSum(numbers,target){
+// let map = new Map()
+// for(let i=0;i<numbers.length;i++){
+//     let el = target - numbers[i]
+//     if(map.has(el)){
+//         return [map.get(el),i+1]
+//     }
+//     map.set(numbers[i],i+1)
+// }
+// }
+// let res = twoSum([1,2,3,4],3)
+// console.log(res);
+
+
+function threeSum(nums){
+let set = new Set()
+ nums.sort((a, b) => a - b);
+ console.log(nums);
+ 
+for(let i =0;i<nums.length;i++){
+    for(let j=i+1;j<nums.length;j++){
+        for(let k=j+1;k<nums.length;k++){
+            if(nums[i]+nums[j]+nums[k]===0){
+                    set.add(JSON.stringify([nums[i],nums[j],nums[k]]))
+            }
+        }
     }
-    map.set(numbers[i],i+1)
 }
+return Array.from(set).map((item)=>JSON.parse(item))
 }
-let res = twoSum([1,2,3,4],3)
+
+let res = threeSum([-1,0,1,2,-1,-4])
 console.log(res);
+
 
