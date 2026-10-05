@@ -62,15 +62,19 @@ function fifth() {
 }
 
 
-first(function () {
+// first(function () {
 
-    second(function () {
+//     second(function () {
 
-        third(function () {
+//         third(function () {
 
-            fourth(function () {
-                fifth();
-            });
-        });
-    });
-});
+//             fourth(function () {
+//                 fifth();
+//             });
+//         });
+//     });
+// });
+
+// const arr =[10,20,30]
+// arr.push(21)
+// console.log(arr);

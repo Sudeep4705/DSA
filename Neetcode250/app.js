@@ -304,7 +304,6 @@
 // let res = longestConsecutive([2,20,4,10,3,4,5])
 // console.log(res);
 
-
 // function  majorityElement(nums){
 // let map = new Map()
 // let n = nums.length
@@ -328,14 +327,10 @@
 // const arr = Array.from(store)
 // return arr
 
-
 // }
 
 // let res = majorityElement([5,2,3,2,2,2,2,5,5,5])
 // console.log(res);
-
-
-
 
 // function  maxProfit(prices){
 // let sum = 0
@@ -351,7 +346,6 @@
 // let res =  maxProfit([7,1,5,3,6,4])
 // console.log(res);
 
-
 // function firstMissingPositive(nums){
 // nums =  nums.sort((a,b)=>a-b)
 // let missing = 1
@@ -364,7 +358,6 @@
 // }
 // let res = firstMissingPositive([1,2,4,5,6,3,1])
 // console.log(res);
-
 
 // Stack
 // function calPoints(operations){
@@ -428,7 +421,6 @@
 // let res =isValid("([{}])")
 // console.log(res);
 
-
 // function isPalindrome(s){
 // let str =  s.replace(/[^a-zA-Z0-9]/g,"")
 // str =str.toLowerCase()
@@ -446,7 +438,6 @@
 
 // let res = isPalindrome("Was it a car or a cat I saw?")
 // console.log(res);
-
 
 // function merge(nums1, m, nums2, n){
 // let copy = nums1.slice(0,m)
@@ -478,9 +469,6 @@
 
 // let res = merge([10,20,20,40,0,0],4,[1,2],2)
 // console.log(res);
-
-
-
 
 // function validPalindrome(s){
 //  let str = s.replace(/[^a-zA-Z0-9]/g,"")
@@ -516,7 +504,6 @@
 // let res = validPalindrome("abbda")
 // console.log(res);
 
-
 // function validPalindrome(s) {
 //     let i = 0;
 //     let j = s.length - 1;
@@ -541,7 +528,6 @@
 //     return true;
 // }
 
-
 // function isPalindrome(s, i, j) {
 
 //     while (i < j) {
@@ -557,12 +543,9 @@
 //     return true;
 // }
 
-
 // let res = validPalindrome("abbda");
 
 // console.log(res);
-
-
 
 // function mergeAlternately(word1, word2){
 // let newstr = new Array(word1.length+word2.length)
@@ -589,7 +572,6 @@
 // let res = mergeAlternately("ab","abbxxc")
 // console.log(res);
 
-
 // function  twoSum(numbers,target){
 // for(let i=0;i<numbers.length;i++){
 //     for(let j=1;j<numbers.length;j++){
@@ -615,7 +597,6 @@
 // }
 // let res = twoSum([1,2,3,4],3)
 // console.log(res);
-
 
 // function threeSum(nums){
 // let set = new Set()
@@ -658,7 +639,7 @@
 //             right--
 //         }
 //     }
-    
+
 // }
 
 // return res
@@ -666,5 +647,22 @@
 // let res =  threeSum([-1,0,1,2,-1,-4])
 // console.log(res);
 
+function fourSum(nums, target) {
+    let res = new Set()
+    nums=nums.sort((a,b)=>a-b)
+ for(let i=0;i<nums.length;i++){
+    for(let j = i+1;j<nums.length;j++){
+        for(let k=j+1;k<nums.length;k++){
+            for(let l=k+1;l<nums.length;l++){
+                if(nums[i]+nums[j]+nums[k]+nums[l]===target){
+                    res.add(JSON.stringify([nums[i],nums[j],nums[k],nums[l]]))
+                }
+            }
+        }
+    }
+ }
+ return Array.from(res).map((item)=>JSON.parse(item))
+}
 
-
+let res = fourSum([1,-1,1,-1,1,-1], 2);
+console.log(res);
