@@ -156,7 +156,7 @@ function fifth() {
 
 // const user1 = { name: "Sudeep" };
 // const user2 = { name: "Alice" };
-// const  user3 = {name:"Likhitha"}
+
 
 //  let greet = ()=> {
 //   console.log("Hi, I'm " + this.name);  
@@ -170,10 +170,6 @@ function fifth() {
 // user2.greet(); 
 // user3.greet(); 
 
-let obj =  {
-  name:"sudeepp"
-}
 
-let obj1 = {
-  name :"likhitha"
-}
+
+
