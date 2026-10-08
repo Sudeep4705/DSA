@@ -647,22 +647,53 @@
 // let res =  threeSum([-1,0,1,2,-1,-4])
 // console.log(res);
 
-function fourSum(nums, target) {
-    let res = new Set()
-    nums=nums.sort((a,b)=>a-b)
- for(let i=0;i<nums.length;i++){
-    for(let j = i+1;j<nums.length;j++){
-        for(let k=j+1;k<nums.length;k++){
-            for(let l=k+1;l<nums.length;l++){
-                if(nums[i]+nums[j]+nums[k]+nums[l]===target){
-                    res.add(JSON.stringify([nums[i],nums[j],nums[k],nums[l]]))
-                }
-            }
-        }
-    }
- }
- return Array.from(res).map((item)=>JSON.parse(item))
-}
+// function fourSum(nums, target) {
+//     let res = new Set()
+// nums=nums.sort((a,b)=>a-b)
+//  for(let i=0;i<nums.length;i++){
+//     for(let j = i+1;j<nums.length;j++){
+//         for(let k=j+1;k<nums.length;k++){
+//             for(let l=k+1;l<nums.length;l++){
+//                 if(nums[i]+nums[j]+nums[k]+nums[l]===target){
+//                     res.add(JSON.stringify([nums[i],nums[j],nums[k],nums[l]]))
+//                 }
+//             }
+//         }
+//     }
+//  }
+//  return Array.from(res).map((item)=>JSON.parse(item))
+// }
 
-let res = fourSum([1,-1,1,-1,1,-1], 2);
-console.log(res);
+// let res = fourSum([1,-1,1,-1,1,-1], 2);
+// console.log(res);
+
+// function fourSum(nums,target){
+//     let n = nums.length
+// nums = nums.sort((a,b)=>a-b)
+// const res = []
+// for(let i=0;i<n;i++){
+//     if(i>0 && nums[i]===nums[i+1]) continue
+//     for(let j=i+1;j<n;j++){
+//         if(j>i+1 && nums[j]===nums[j-1]) continue
+//         let left = j+1
+//         let right = n-1
+//         while(left<right){
+//             const sum = nums[i]+nums[j]+nums[left]+nums[right]
+//             if(sum===target){
+//                 res.push([nums[i],nums[j],nums[left],nums[right]])
+//                 left++
+//                 right--
+//                 while(left<right && nums[left]===nums[left-1])left++
+//                 while(left<right && nums[right]===nums[right+1])right--
+//             }else if(sum<target){
+//                 left++
+//             }else{
+//                 right--
+//             }
+//         }
+//     }
+// }
+// return res
+// }
+// let res = fourSum([3,2,3,-3,1,0],3)
+// console.log(res);
