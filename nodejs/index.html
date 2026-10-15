@@ -6,23 +6,37 @@
     <title>Document</title>
   </head>
   <body>
-    <div style="width:300px; height:200px; background-color: aqua; padding: 10px; border: 10px solid red; margin: 2px;" >
-           
-    </div>
-    <div style="width:300px; height:200px; background-color: aqua; padding: 10px; border: 10px solid red; box-sizing: border-box;" >
-           
-    </div> 
+    <div
+      style="
+        width: 300px;
+        height: 200px;
+        background-color: aqua;
+        padding: 10px;
+        border: 10px solid red;
+        margin: 2px;
+      "
+    ></div>
+    <div
+      style="
+        width: 300px;
+        height: 200px;
+        background-color: aqua;
+        padding: 10px;
+        border: 10px solid red;
+        box-sizing: border-box;
+      "
+    ></div>
 
-  <div style="width: 100%">
+    <div style="width: 100%">
       <p style="display: inline">hi im Sudeep</p>
     </div>
     <div style="width: 100%">
       <p style="display: block">hi im Sudeep</p>
     </div>
     <div style="width: 100%">
-      <p style="display: inline-block;">hi im Sudeep</p>
+      <p style="display: inline-block">hi im Sudeep</p>
       1. INLINE (Ignores width, height, and top/bottom margins)
-   <p
+      <p
         style="
           display: block;
           width: 200px;
@@ -46,15 +60,76 @@
       >
         I am Inline-Block
       </p>
-    </div>  
+    </div>
     <!-- BLOCK: They will stack on top of each other -->
-<div style="display: block; width: 100px; height: 100px; background-color: red; color: white;">Block 1</div>
-<div style="display: block; width: 100px; height: 100px; background-color: blue; color: white;">Block 2</div>
+    <div
+      style="
+        display: block;
+        width: 100px;
+        height: 100px;
+        background-color: red;
+        color: white;
+      "
+    >
+      Block 1
+    </div>
+    <div
+      style="
+        display: block;
+        width: 100px;
+        height: 100px;
+        background-color: blue;
+        color: white;
+      "
+    >
+      Block 2
+    </div>
+    <br /><br />
 
-<br><br>
-
-<!-- INLINE-BLOCK: They will sit side-by-side -->
-<div style="display: inline-block; width: 100px; height: 100px; background-color: red; color: white;">Inline-Block 1</div>
-<div style="display: inline-block; width: 100px; height: 100px; background-color: blue; color: white;">Inline-Block 2</div>
+    <!-- INLINE-BLOCK: They will sit side-by-side -->
+    <div
+      style="
+        display: inline-block;
+        width: 100px;
+        height: 100px;
+        background-color: red;
+        color: white;
+      "
+    >
+      Inline-Block 1
+    </div>
+    <div
+      style="
+        display: inline-block;
+        width: 100px;
+        height: 100px;
+        background-color: blue;
+        color: white;
+      "
+    >
+      Inline-Block 2
+    </div>
+    
+    <!-- postition -->
+    <div style="margin: 10px;">
+      <div
+        class="static"
+        style="width: 50px; height: 50px; background-color: blue"
+      >
+        static
+      </div>
+      <div
+        class="relative"
+        style="width: 50px; height: 50px; background-color: red"
+      >
+        relative
+      </div>
+      <div
+        class="absloute"
+        style="width: 50px; height: 50px; background-color: green"
+      >
+        absloute
+      </div>
+    </div>
   </body>
 </html>
