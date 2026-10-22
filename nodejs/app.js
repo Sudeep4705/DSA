@@ -235,26 +235,175 @@
 // let res = best([7, 1, 5, 3, 6, 4]);
 // console.log(res);
 
-function majorityElement(nums){
-  let n = nums.length
-let map = new Map()
-for(let i=0;i<nums.length;i++){
-  if(!map.has(nums[i])){
-    map.set(nums[i],1)
-  }else{
-    map.set(nums[i],map.get(nums[i])+1)
-  }
-}
-const set =  new Set()
-for(let j=0;j<n;j++){
-  let el = map.get(nums[j])
-  console.log(el);
-  if(el>n/3){
-    set.add(nums[j])
-  }
-}
-return Array.from(set)
-}
+// function majorityElement(nums){
+//   let n = nums.length
+// let map = new Map()
+// for(let i=0;i<nums.length;i++){
+//   if(!map.has(nums[i])){
+//     map.set(nums[i],1)
+//   }else{
+//     map.set(nums[i],map.get(nums[i])+1)
+//   }
+// }
+// const set =  new Set()
+// for(let j=0;j<n;j++){
+//   let el = map.get(nums[j])
+//   console.log(el);
+//   if(el>n/3){
+//     set.add(nums[j])
+//   }
+// }
+// return Array.from(set)
+// }
 
-let res =  majorityElement([1,2,3])
-console.log(res);
+// let res =  majorityElement([1,2,3])
+// console.log(res);
+
+// function sortColors(nums) {
+//   let n = nums.length;
+//   let k = 0,
+//     i = 0;
+//   j = nums.length-1;
+//   while (k <= j) {
+//     if (nums[k] === 0) {
+//       let temp = nums[k];
+//       nums[k] = nums[i];
+//       nums[i] = temp;
+//       k++;
+//       i++;
+//     } else if (nums[k] === 2) {
+//       let temp = nums[k];
+//       nums[k] = nums[j];
+//       nums[j] = temp;
+//       j--;
+//       k++
+//     } else {
+//       k++;
+//     }
+//   }
+//   return nums;
+// }
+
+// let res = sortColors([1, 0, 1, 2]);
+// console.log(res);
+
+// function validAnagram(s, t) {
+//   if (s.length != t.length) {
+//     return false;
+//   }
+//   let s_sorted = s.split("").sort().join("");
+//   let t_sorted = t.split("").sort().join("");
+//   if (s_sorted != t_sorted) {
+//     return false;
+//   } else {
+//     return true;
+//   }
+// }
+
+// let res = validAnagram("racecar", "carrace");
+// console.log(res);
+
+// function longestConsecutive(nums){
+// if(nums.length===0){
+//     return  0
+// }
+// nums.sort((a,b)=> a-b)
+
+// let longest = 1
+// let current = 1
+
+// for(let i=1;i<nums.length;i++){
+//     if(nums[i]===nums[i-1]){
+//         continue
+//     }
+//     if(nums[i]===nums[i-1]+1){
+//         current++
+//     }
+//     else{
+//         current=1
+//     }
+//     longest= Math.max(longest,current)
+// }
+// return longest
+// }
+
+// let res = longestConsecutive([2,20,4,10,3,4,5])
+// console.log(res);
+
+// function  hasDuplicate(nums){
+// let map  = new Map()
+// for(let i=0;i<nums.length;i++){
+//   if(!map.has(nums[i])){
+//       map.set(nums[i],1)
+//   }else{
+//     map.set(nums[i],map.get(nums[i])+1)
+//   }
+// }
+// console.log(map);
+
+// for(let i=0;i<nums.length;i++){
+//   let el = map.get(nums[i])
+//   if(el>1){
+//     return true
+//   }
+// }
+// return false
+// }
+
+// let res = hasDuplicate([1, 2, 3, 3])
+// console.log(res);
+
+// function  hasDuplicate(nums){
+
+// let arr = []
+// for(let i=0;i<nums.length;i++){
+//   if(!arr.includes(nums[i])){
+//       arr.push(nums[i])
+//   }else{
+//     return true
+//   }
+// }
+// return false
+// }
+
+// let res = hasDuplicate([1, 2, 3, 3])
+// console.log(res);
+
+// function twoSum(nums,target){
+//     let map = new Map()
+//     for(let i=0;i<nums.length;i++){
+//     let el =  target - nums[i]
+//        if(map.has(el)){
+//             return [map.get(el),i+1]
+//        }
+//           map.set(nums[i],i+1)
+//     }
+//   }
+// let res = twoSum([1,2,3,4],3)
+// console.log(res);
+// function threesum(nums) {
+//   let res = [];
+//   nums = nums.sort((a,b)=>a-b)
+//   for (let i = 0; i < nums.length; i++) {
+//     if(i>0 && nums[i]===nums[i-1])continue
+//     let left = i + 1;
+//     let right = nums.length - 1;
+//     while(left < right){
+//       let sum = nums[i] + nums[left] + nums[right];
+//       if (sum === 0){
+//         res.push([nums[i], nums[left], nums[right]]);
+//         while(left<right && nums[left]===nums[left+1])left++
+//         while(left<right && nums[right]===nums[right-1])right--
+//         left++;
+//         right--;
+//       } else if (sum < 0) {
+//         left++;
+//       } else {
+//         right--;
+//       }
+//     }
+//   }
+//   return res;
+// }
+// let res = threesum([-1, 0, 1, 2, -1, -4]);
+// console.log(res);

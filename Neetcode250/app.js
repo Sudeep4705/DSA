@@ -698,4 +698,20 @@
 // let res = fourSum([3,2,3,-3,1,0],3)
 // console.log(res);
 
+function rotate(nums, k) {
+  for (let i = 0; i < k; i++) {
+    let m = nums.length - 2,
+      j = nums.length - 1;
+    let temp = nums[j];
+    while (0 <= m) {
+      nums[j] = nums[m];
+      j--;
+      m--;
+    }
+    nums[0] = temp;
+  }
+  return nums;
+}
 
+let res = rotate([1, 2, 3, 4, 5, 6, 7, 8], 4);
+console.log(res);
