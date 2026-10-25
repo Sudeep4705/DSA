@@ -698,20 +698,56 @@
 // let res = fourSum([3,2,3,-3,1,0],3)
 // console.log(res);
 
-function rotate(nums, k) {
-  for (let i = 0; i < k; i++) {
-    let m = nums.length - 2,
-      j = nums.length - 1;
-    let temp = nums[j];
-    while (0 <= m) {
-      nums[j] = nums[m];
-      j--;
-      m--;
-    }
-    nums[0] = temp;
-  }
-  return nums;
-}
+// O(n2)
+// function rotate(nums, k) {
+//   for (let i = 0; i < k; i++) {
+//     let m = nums.length - 2,
+//       j = nums.length - 1;
+//     let temp = nums[j];
+//     while (0 <= m) {
+//       nums[j] = nums[m];
+//       j--;
+//       m--;
+//     }
+//     nums[0] = temp;
+//   }
+//   return nums;
+// }
 
-let res = rotate([1, 2, 3, 4, 5, 6, 7, 8], 4);
+// let res = rotate([1, 2, 3, 4, 5, 6, 7, 8], 4);
+// console.log(res);,start,end
+// function reverse(arr,start,end){
+//     while(start<end){
+//         let temp = arr[start]
+//         arr[start]=arr[end]
+//         arr[end]=temp
+//         start++
+//         end--
+//     }
+// }
+
+// function rotate(nums,k){
+//     k = k % nums.length;
+//     if(k===0) return nums
+//     reverse(nums,0,nums.length-1)
+//     reverse(nums,0,k-1)
+//     reverse(nums,k,nums.length-1)
+//     return nums
+// }
+
+// let res = rotate([1, 2, 3, 4, 5, 6, 7, 8],4)
+// console.log(res);
+
+
+function maxArea(heights){
+       let res = 0;
+        for (let i = 0; i < heights.length; i++) {
+            for (let j = i + 1; j < heights.length; j++) {
+                res = Math.max(res, Math.min(heights[i], heights[j]) * (j - i));
+            }
+        }
+        return res;
+}
+let res =  maxArea([1,7,2,5,4,7,3,6])
 console.log(res);
+
