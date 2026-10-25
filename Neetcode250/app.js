@@ -739,14 +739,33 @@
 // console.log(res);
 
 
+// function maxArea(heights){
+//        let res = 0;
+//         for (let i = 0; i < heights.length; i++) {
+//             for (let j = i + 1; j < heights.length; j++) {
+//                 res = Math.max(res, Math.min(heights[i], heights[j]) * (j - i));
+//             }
+//         }
+//         return res;
+// }
+// let res =  maxArea([1,7,2,5,4,7,3,6])
+// console.log(res);
+
+
 function maxArea(heights){
-       let res = 0;
-        for (let i = 0; i < heights.length; i++) {
-            for (let j = i + 1; j < heights.length; j++) {
-                res = Math.max(res, Math.min(heights[i], heights[j]) * (j - i));
-            }
+      let i=0;
+      let j=heights.length-1
+      let res = 0
+      while(i<j){
+        const area = Math.min(heights[i],heights[j])* (j-i)
+        res = Math.max(res,area)
+        if(heights[i]<=heights[j]){
+            i++
+        }else{
+            j--
         }
-        return res;
+      }
+      return res
 }
 let res =  maxArea([1,7,2,5,4,7,3,6])
 console.log(res);
