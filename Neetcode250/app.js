@@ -752,21 +752,47 @@
 // console.log(res);
 
 
-function maxArea(heights){
-      let i=0;
-      let j=heights.length-1
-      let res = 0
-      while(i<j){
-        const area = Math.min(heights[i],heights[j])* (j-i)
-        res = Math.max(res,area)
-        if(heights[i]<=heights[j]){
-            i++
-        }else{
-            j--
-        }
-      }
-      return res
-}
-let res =  maxArea([1,7,2,5,4,7,3,6])
-console.log(res);
+// function maxArea(heights){
+//       let i=0;
+//       let j=heights.length-1
+//       let res = 0
+//       while(i<j){
+//         const area = Math.min(heights[i],heights[j])* (j-i)
+//         res = Math.max(res,area)
+//         if(heights[i]<=heights[j]){
+//             i++
+//         }else{
+//             j--
+//         }
+//       }
+//       return res
+// }
+// let res =  maxArea([1,7,2,5,4,7,3,6])
+// console.log(res);
 
+// function firstMissingPositive(nums){
+//     for(let i=1;i<=100;i++){
+//         if(!nums.includes(i) && i>0){
+//             return i
+//         }
+//     }
+// }
+
+// let res = firstMissingPositive([-2,-1,0])
+// console.log(res);
+
+
+// O(n2)
+function containsNearbyDuplicate(nums,k){
+for(let i=0;i<nums.length;i++){
+    for(let j=i+1;j<nums.length;j++){
+        if(nums[i]===nums[j] && Math.abs(i-j)<=k){
+            return true
+        }
+    }
+}
+return false
+}
+
+let res = containsNearbyDuplicate([1,2,3,1],3)
+console.log(res);
