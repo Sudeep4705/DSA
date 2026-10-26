@@ -783,12 +783,34 @@
 
 
 // O(n2)
+// function containsNearbyDuplicate(nums,k){
+// for(let i=0;i<nums.length;i++){
+//     for(let j=i+1;j<nums.length;j++){
+//         if(nums[i]===nums[j] && Math.abs(i-j)<=k){
+//             return true
+//         }
+//     }
+// }
+// return false
+// }
+
+// let res = containsNearbyDuplicate([1,2,3,1],3)
+// console.log(res);
+
+
 function containsNearbyDuplicate(nums,k){
-for(let i=0;i<nums.length;i++){
-    for(let j=i+1;j<nums.length;j++){
-        if(nums[i]===nums[j] && Math.abs(i-j)<=k){
-            return true
-        }
+let set = new Set()
+let left = 0 
+
+for(let right=0;right<nums.length;right++){
+    if(set.has(nums[right])){
+        return true
+    }
+    set.add(nums[right])
+
+    if(right-left>=k){
+        set.delete(nums[left])
+        left++
     }
 }
 return false
