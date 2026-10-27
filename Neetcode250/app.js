@@ -849,5 +849,21 @@
 // let res = maxProfit([10, 1, 5, 6, 7, 1]);
 // console.log(res);
 
+// O(n2)
+function lengthOfLongestSubstring(s) {
+  let res = 0;
+  for (let i = 0; i < s.length; i++) {
+    let set = new Set();
+    for (let j = i; j < s.length; j++) {
+      if (set.has(s[j])) {
+        break;
+      }
+      set.add(s[j]);
+    }
+    res = Math.max(set.size, res);
+  }
+  return res;
+}
 
-
+let res = lengthOfLongestSubstring("pwwkew");
+console.log(res);
