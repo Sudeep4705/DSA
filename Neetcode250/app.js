@@ -738,7 +738,6 @@
 // let res = rotate([1, 2, 3, 4, 5, 6, 7, 8],4)
 // console.log(res);
 
-
 // function maxArea(heights){
 //        let res = 0;
 //         for (let i = 0; i < heights.length; i++) {
@@ -750,7 +749,6 @@
 // }
 // let res =  maxArea([1,7,2,5,4,7,3,6])
 // console.log(res);
-
 
 // function maxArea(heights){
 //       let i=0;
@@ -781,7 +779,6 @@
 // let res = firstMissingPositive([-2,-1,0])
 // console.log(res);
 
-
 // O(n2)
 // function containsNearbyDuplicate(nums,k){
 // for(let i=0;i<nums.length;i++){
@@ -797,24 +794,40 @@
 // let res = containsNearbyDuplicate([1,2,3,1],3)
 // console.log(res);
 
+// function containsNearbyDuplicate(nums,k){
+// let set = new Set()
+// let left = 0
 
-function containsNearbyDuplicate(nums,k){
-let set = new Set()
-let left = 0 
+// for(let right=0;right<nums.length;right++){
+//     if(set.has(nums[right])){
+//         return true
+//     }
+//     set.add(nums[right])
 
-for(let right=0;right<nums.length;right++){
-    if(set.has(nums[right])){
-        return true
-    }
-    set.add(nums[right])
+//     if(right-left>=k){
+//         set.delete(nums[left])
+//         left++
+//     }
+// }
+// return false
+// }
 
-    if(right-left>=k){
-        set.delete(nums[left])
-        left++
-    }
-}
-return false
-}
+// let res = containsNearbyDuplicate([1,2,3,1],3)
+// console.log(res);
 
-let res = containsNearbyDuplicate([1,2,3,1],3)
-console.log(res);
+// O(n)
+// function  maxProfit(prices){
+// let min = prices[0],maxProfit=0
+// for(let i=1;i<prices.length;i++){
+//     if(prices[i]<min){
+//         min= prices[i]
+//     }
+//     let profit =  prices[i] - min
+//     maxProfit = Math.max(profit,maxProfit)
+// }
+// return maxProfit
+// }
+// let res = maxProfit([10,1,5,6,7,1])
+// console.log(res);
+
+//
