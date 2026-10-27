@@ -850,20 +850,40 @@
 // console.log(res);
 
 // O(n2)
-function lengthOfLongestSubstring(s) {
-  let res = 0;
-  for (let i = 0; i < s.length; i++) {
-    let set = new Set();
-    for (let j = i; j < s.length; j++) {
-      if (set.has(s[j])) {
-        break;
-      }
-      set.add(s[j]);
-    }
-    res = Math.max(set.size, res);
+// function lengthOfLongestSubstring(s) {
+//   let res = 0;
+//   for (let i = 0; i < s.length; i++) {
+//     let set = new Set();
+//     for (let j = i; j < s.length; j++) {
+//       if (set.has(s[j])) {
+//         break;
+//       }
+//       set.add(s[j]);
+//     }
+//     res = Math.max(set.size, res);
+//   }
+//   return res;
+// }
+
+// let res = lengthOfLongestSubstring("pwwkew");
+// console.log(res);
+
+
+function  lengthOfLongestSubstring(s){
+let set = new Set()
+let l =0
+let res =0
+
+for(let r=0;r<s.length;r++){
+  while(set.has(s[r])){
+    set.delete(s[l])
+    l++
   }
-  return res;
+  set.add(s[r])
+  res = Math.max(res,r-l+1)
+}
+return res
 }
 
-let res = lengthOfLongestSubstring("pwwkew");
+let res = lengthOfLongestSubstring("zxyzxyz")
 console.log(res);
