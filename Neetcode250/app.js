@@ -831,20 +831,23 @@
 // console.log(res);
 
 //sliding window
-function maxProfit(prices) {
-  let left = 0,
-    right = 1,
-    maxprofit = 0;
+// function maxProfit(prices) {
+//   let left = 0,
+//     right = 1,
+//     maxprofit = 0;
 
-  while (right < prices.length) {
-    if (prices[right] > prices[left]) {
-      maxprofit = Math.max(prices[right] - prices[left], maxprofit);
-    } else {
-      left=right;
-    }
-    right++;
-  }
-  return maxprofit;
-}
-let res = maxProfit([10, 1, 5, 6, 7, 1]);
-console.log(res);
+//   while (right < prices.length) {
+//     if (prices[right] > prices[left]) {
+//       maxprofit = Math.max(prices[right] - prices[left], maxprofit);
+//     } else {
+//       left=right;
+//     }
+//     right++;
+//   }
+//   return maxprofit;
+// }
+// let res = maxProfit([10, 1, 5, 6, 7, 1]);
+// console.log(res);
+
+
+
