@@ -408,5 +408,62 @@
 // let res = threesum([-1, 0, 1, 2, -1, -4]);
 // console.log(res);
 
+// const loglevels = {
+//  INFO: "Information",
+//   DEBUG: "Debugging",
+//   ERROR: "Error"
+// }
 
+// function logging(level,message) {
+//     console.log(loglevels[level],message);
+// }
 
+// logging("INFO","Application started")
+// logging("ERROR", "Payment failed");
+// logging("DEBUG", "started")
+
+// function numRescueBoats(people, limit){
+// people = people.sort((a,b)=>a-b)
+// let i=0;
+// let set = new Set()
+// while(i<people.length){
+//   if(people[i]<limit){
+//     set.add(people[i])
+//   }
+//   i++
+// }
+// let count = Array.from(set).length
+// for(let j=0;j<arr.length;j++){
+//     if(arr[j]==limit){
+//         count--
+//     }
+// }
+// return count
+// }
+
+// let res = numRescueBoats([1,3,2,3,2],3)
+// console.log(res);
+
+function numRescueBoats(people, limit) {
+  people.sort((a, b) => a - b);
+
+        let left = 0;
+        let right = people.length - 1;
+        let count = 0;
+
+        while(left <= right) {
+            if(people[left] + people[right] <= limit) {
+                right--;
+                left++;
+            } else {
+                right--;
+            }
+
+            count++;
+        }
+
+        return count;
+}
+
+let res = numRescueBoats([1, 3, 2, 3, 2], 3);
+console.log(res);
