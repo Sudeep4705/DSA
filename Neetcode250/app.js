@@ -868,22 +868,70 @@
 // let res = lengthOfLongestSubstring("pwwkew");
 // console.log(res);
 
+// function lengthOfLongestSubstring(s) {
+//   let set = new Set();
+//   let l = 0;
+//   let res = 0;
 
-function  lengthOfLongestSubstring(s){
-let set = new Set()
-let l =0
-let res =0
+//   for (let r = 0; r < s.length; r++) {
+//     while (set.has(s[r])) {
+//       set.delete(s[l]);
+//       l++;
+//     }
+//     set.add(s[r]);
+//     res = Math.max(res, r - l + 1);
+//   }
+//   return res;
+// }
 
-for(let r=0;r<s.length;r++){
-  while(set.has(s[r])){
-    set.delete(s[l])
-    l++
-  }
-  set.add(s[r])
-  res = Math.max(res,r-l+1)
-}
-return res
-}
+// let res = lengthOfLongestSubstring("zxyzxyz");
+// console.log(res);
 
-let res = lengthOfLongestSubstring("zxyzxyz")
-console.log(res);
+// function numRescueBoats(people, limit){
+// people = people.sort((a,b)=>a-b)
+// let i=0;
+// let set = new Set()
+// while(i<people.length){
+//   if(people[i]<limit){
+//     set.add(people[i])
+//   }
+//   i++
+// }
+// let count = Array.from(set).length
+// for(let j=0;j<arr.length;j++){
+//     if(arr[j]==limit){
+//         count--
+//     }
+// }
+// return count
+// }
+
+// let res = numRescueBoats([1,3,2,3,2],3)
+// console.log(res);
+
+// function numRescueBoats(people, limit) {
+//   people.sort((a, b) => a - b);
+
+//         let left = 0;
+//         let right = people.length - 1;
+//         let count = 0;
+
+//         while(left <= right) {
+//             if(people[left] + people[right] <= limit) {
+//                 right--;
+//                 left++;
+//             } else {
+//                 right--;
+//             }
+
+//             count++;
+//         }
+
+//         return count;
+// }
+
+// let res = numRescueBoats([1, 3, 2, 3, 2], 3);
+// console.log(res);
+
+
+

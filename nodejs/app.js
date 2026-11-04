@@ -444,26 +444,42 @@
 // let res = numRescueBoats([1,3,2,3,2],3)
 // console.log(res);
 
-function numRescueBoats(people, limit) {
-  people.sort((a, b) => a - b);
+// function numRescueBoats(people, limit) {
+//   people.sort((a, b) => a - b);
 
-        let left = 0;
-        let right = people.length - 1;
-        let count = 0;
+//         let left = 0;
+//         let right = people.length - 1;
+//         let count = 0;
 
-        while(left <= right) {
-            if(people[left] + people[right] <= limit) {
-                right--;
-                left++;
-            } else {
-                right--;
-            }
+//         while(left <= right) {
+//             if(people[left] + people[right] <= limit) {
+//                 right--;
+//                 left++;
+//             } else {
+//                 right--;
+//             }
 
-            count++;
-        }
+//             count++;
+//         }
 
-        return count;
+//         return count;
+// }
+
+// let res = numRescueBoats([1, 3, 2, 3, 2], 3);
+// console.log(res);
+
+function characterReplacement(s,k){
+let map = new Map()
+
+for(let i=0;i<s.length;i++){
+    if(!map.has(s[i])){
+        map.set(s[i],1)
+    }
+    map.set(s[i],map.get(s[i])+1)
+}
+console.log(map);
+
 }
 
-let res = numRescueBoats([1, 3, 2, 3, 2], 3);
+let res = characterReplacement("XYYX",2)
 console.log(res);
