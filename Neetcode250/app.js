@@ -933,5 +933,84 @@
 // let res = numRescueBoats([1, 3, 2, 3, 2], 3);
 // console.log(res);
 
+// function characterReplacement(s, k){
+// let map = new Map()
+// for(let i=0;i<s.length;i++){
+//     if(!map.has(s[i])){
+//         map.set(s[i],1)
+//     }else{
+//         map.set(s[i],map.get(s[i])+1)
+//     }
+    
+// }
+// console.log(map);
+//  if(map.size==1){
+//         return s.length
+// }
+
+// let max = 0
+// for(let j=0;j<s.length;j++){
+//     let value = map.get(s[j])
+   
+//     if(value>max){
+//         max=value
+//     }
+// }
+// return max+k
+
+// }
+// let res = characterReplacement("XYYX",2)
+// console.log(res);
+
+
+// function characterReplacement(s, k){
+//         let res = 0;
+//         for (let i = 0; i < s.length; i++) {
+//             let count = new Map();
+//             let maxf = 0;
+//             for (let j = i; j < s.length; j++) {
+//                 count.set(s[j], (count.get(s[j]) || 0) + 1);
+//                 maxf = Math.max(maxf, count.get(s[j]));
+//                 if (j - i + 1 - maxf <= k) {
+//                     res = Math.max(res, j - i + 1);
+//                 }
+//             }
+//         }
+//         return res;
+
+// }
+// let res = characterReplacement("XYYX",2)
+// console.log(res);
+
+
+
+function characterReplacement(s, k){
+let map = new Map();
+    let max = 0;
+    let left = 0;      
+    let result = 0;     
+
+    for (let right = 0; right < s.length; right++) {
+        if (!map.has(s[right])) {
+            map.set(s[right], 1);
+        } else {
+            map.set(s[right], map.get(s[right]) + 1);
+        }
+        max = Math.max(max, map.get(s[right]));
+        let windowSize = right - left + 1;
+        if (windowSize - max > k) {
+            map.set(s[left], map.get(s[left]) - 1);
+            left++;
+        } else {
+            result = Math.max(result, windowSize);
+        }
+    }
+
+    return result;
+
+
+}
+let res = characterReplacement("XYYX",2)
+console.log(res);
 
 
