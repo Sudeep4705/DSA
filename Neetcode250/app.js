@@ -1052,6 +1052,5 @@ function checkInclusion(s1, s2) {
     }
     return false;
 }
-
 let res = checkInclusion("abc", "cccccbabbbaaaa");
 console.log(res);
