@@ -941,7 +941,7 @@
 //     }else{
 //         map.set(s[i],map.get(s[i])+1)
 //     }
-    
+
 // }
 // console.log(map);
 //  if(map.size==1){
@@ -951,7 +951,7 @@
 // let max = 0
 // for(let j=0;j<s.length;j++){
 //     let value = map.get(s[j])
-   
+
 //     if(value>max){
 //         max=value
 //     }
@@ -961,7 +961,6 @@
 // }
 // let res = characterReplacement("XYYX",2)
 // console.log(res);
-
 
 // function characterReplacement(s, k){
 //         let res = 0;
@@ -982,35 +981,77 @@
 // let res = characterReplacement("XYYX",2)
 // console.log(res);
 
+// function characterReplacement(s, k){
+// let map = new Map();
+//     let max = 0;
+//     let left = 0;
+//     let result = 0;
+
+//     for (let right = 0; right < s.length; right++) {
+//         if (!map.has(s[right])) {
+//             map.set(s[right], 1);
+//         } else {
+//             map.set(s[right], map.get(s[right]) + 1);
+//         }
+//         max = Math.max(max, map.get(s[right]));
+//         let windowSize = right - left + 1;
+//         if (windowSize - max > k) {
+//             map.set(s[left], map.get(s[left]) - 1);
+//             left++;
+//         } else {
+//             result = Math.max(result, windowSize);
+//         }
+//     }
+
+//     return result;
+
+// }
+// let res = characterReplacement("XYYX",2)
+// console.log(res);
+
+// function checkInclusion(s1, s2) {
+//   let map = new Map()
+// for(let i=0;i<s2.length;i++){
+//     if(s1.includes(s2[i])){
+//         map.set(s2[i],i)
+//     }else{
+//       map.set()
+//     }
+//   }
+
+//   console.log(map);
+  
+//   let arr =  Array.from(map.values()).sort((a,b)=>a-b)
+//   console.log(arr);
+//   if(arr.length != s1.length){
+//     return false
+//   }
+// for(let j=0;j<arr.length-1;j++){
+//   let data = arr[j+1]-arr[j]
+//   console.log(data);
+//     if(data!=1){
+//         return false
+//     }
+//   }
+//   return true
+// }
+
+// let res = checkInclusion("abc", "cccccbabbbaaaa");
+// console.log(res);
 
 
-function characterReplacement(s, k){
-let map = new Map();
-    let max = 0;
-    let left = 0;      
-    let result = 0;     
-
-    for (let right = 0; right < s.length; right++) {
-        if (!map.has(s[right])) {
-            map.set(s[right], 1);
-        } else {
-            map.set(s[right], map.get(s[right]) + 1);
-        }
-        max = Math.max(max, map.get(s[right]));
-        let windowSize = right - left + 1;
-        if (windowSize - max > k) {
-            map.set(s[left], map.get(s[left]) - 1);
-            left++;
-        } else {
-            result = Math.max(result, windowSize);
+function checkInclusion(s1, s2) {
+     if (s1.length > s2.length) return false;
+    const target = s1.split('').sort().join('');
+    console.log(target);
+    for (let i = 0; i <= s2.length - s1.length; i++) {
+        const window = s2.substring(i, i + s1.length);
+        if (window.split('').sort().join('') === target) {
+            return true; 
         }
     }
-
-    return result;
-
-
+    return false;
 }
-let res = characterReplacement("XYYX",2)
+
+let res = checkInclusion("abc", "cccccbabbbaaaa");
 console.log(res);
-
-
