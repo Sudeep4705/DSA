@@ -1020,7 +1020,7 @@
 //   }
 
 //   console.log(map);
-  
+
 //   let arr =  Array.from(map.values()).sort((a,b)=>a-b)
 //   console.log(arr);
 //   if(arr.length != s1.length){
@@ -1039,18 +1039,35 @@
 // let res = checkInclusion("abc", "cccccbabbbaaaa");
 // console.log(res);
 
+// function checkInclusion(s1, s2) {
+//      if (s1.length > s2.length) return false;
+//     const target = s1.split('').sort().join('');
+//     console.log(target);
+//     for (let i = 0; i <= s2.length - s1.length; i++) {
+//         const window = s2.substring(i, i + s1.length);
+//         if (window.split('').sort().join('') === target) {
+//             return true;
+//         }
+//     }
+//     return false;
+// }
+// let res = checkInclusion("abc", "cccccbabbbaaaa");
+// console.log(res);
 
-function checkInclusion(s1, s2) {
-     if (s1.length > s2.length) return false;
-    const target = s1.split('').sort().join('');
-    console.log(target);
-    for (let i = 0; i <= s2.length - s1.length; i++) {
-        const window = s2.substring(i, i + s1.length);
-        if (window.split('').sort().join('') === target) {
-            return true; 
-        }
+function minSubArrayLen(target, nums) {
+    let l = 0,total = 0;
+    let res = Infinity;
+
+    for(let r=0;r<nums.length;r++){
+      total+=nums[r]
+      while(total>=target){
+        res = Math.min(r-l+1,res)
+        total-=nums[l]
+        l++
+      }
     }
-    return false;
+    return res===Infinity ? 0 : res
 }
-let res = checkInclusion("abc", "cccccbabbbaaaa");
+
+let res = minSubArrayLen(10, [2, 1, 5, 1, 5, 3]);
 console.log(res);
