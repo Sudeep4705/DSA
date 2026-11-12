@@ -1054,20 +1054,54 @@
 // let res = checkInclusion("abc", "cccccbabbbaaaa");
 // console.log(res);
 
-function minSubArrayLen(target, nums) {
-    let l = 0,total = 0;
-    let res = Infinity;
+// function minSubArrayLen(target, nums) {
+//     let l = 0,total = 0;
+//     let res = Infinity;
 
-    for(let r=0;r<nums.length;r++){
-      total+=nums[r]
-      while(total>=target){
-        res = Math.min(r-l+1,res)
-        total-=nums[l]
-        l++
-      }
+//     for(let r=0;r<nums.length;r++){
+//       total+=nums[r]
+//       while(total>=target){
+//         res = Math.min(r-l+1,res)
+//         total-=nums[l]
+//         l++
+//       }
+//     }
+//     return res===Infinity ? 0 : res
+// }
+
+// let res = minSubArrayLen(10, [2, 1, 5, 1, 5, 3]);
+// console.log(res);
+
+
+function trap(height){
+   if (!height || height.length < 3) return 0;
+
+    let left = 0;
+    let right = height.length - 1;
+    
+    let maxLeft = 0;
+    let maxRight = 0;
+    let totalWater = 0;
+
+    while (left < right) {
+        // We always process the side with the smaller height
+        if (height[left] < height[right]) {
+            // Update maxLeft if we found a taller bar
+            maxLeft = Math.max(maxLeft, height[left]);
+            // Add trapped water (if height[left] is the new max, this adds 0)
+            totalWater += maxLeft - height[left];
+            left++;
+        } else {
+            // Update maxRight if we found a taller bar
+            maxRight = Math.max(maxRight, height[right]);
+            // Add trapped water
+            totalWater += maxRight - height[right];
+            right--;
+        }
     }
-    return res===Infinity ? 0 : res
+
+    return totalWater;
 }
 
-let res = minSubArrayLen(10, [2, 1, 5, 1, 5, 3]);
+let res = trap([0,2,0,3,1,0,1,3,2,1])
 console.log(res);
