@@ -1073,35 +1073,64 @@
 // console.log(res);
 
 
-function trap(height){
-   if (!height || height.length < 3) return 0;
+// function trap(height){
+//    if (!height || height.length < 3) return 0;
 
-    let left = 0;
-    let right = height.length - 1;
+//     let left = 0;
+//     let right = height.length - 1;
     
-    let maxLeft = 0;
-    let maxRight = 0;
-    let totalWater = 0;
+//     let maxLeft = 0;
+//     let maxRight = 0;
+//     let totalWater = 0;
 
-    while (left < right) {
-        // We always process the side with the smaller height
-        if (height[left] < height[right]) {
-            // Update maxLeft if we found a taller bar
-            maxLeft = Math.max(maxLeft, height[left]);
-            // Add trapped water (if height[left] is the new max, this adds 0)
-            totalWater += maxLeft - height[left];
-            left++;
+//     while (left < right) {
+//         // We always process the side with the smaller height
+//         if (height[left] < height[right]) {
+//             // Update maxLeft if we found a taller bar
+//             maxLeft = Math.max(maxLeft, height[left]);
+//             // Add trapped water (if height[left] is the new max, this adds 0)
+//             totalWater += maxLeft - height[left];
+//             left++;
+//         } else {
+//             // Update maxRight if we found a taller bar
+//             maxRight = Math.max(maxRight, height[right]);
+//             // Add trapped water
+//             totalWater += maxRight - height[right];
+//             right--;
+//         }
+//     }
+
+//     return totalWater;
+// }
+
+// let res = trap([0,2,0,3,1,0,1,3,2,1])
+// console.log(res);
+
+
+
+function findClosestElements(arr, k, x){
+    arr.sort((a, b) => {
+        // Calculate the distance of 'a' and 'b' to 'x'
+        const distA = Math.abs(a - x);
+        const distB = Math.abs(b - x);
+        if (distA !== distB){
+            // Rule 1: If distances are different, the one with the 
+            // smaller distance comes first.
+            return distA - distB; 
         } else {
-            // Update maxRight if we found a taller bar
-            maxRight = Math.max(maxRight, height[right]);
-            // Add trapped water
-            totalWater += maxRight - height[right];
-            right--;
+            // Rule 2: If distances are the SAME (a tie!), 
+            // the smaller number comes first.
+            return a - b; 
         }
-    }
-
-    return totalWater;
+    });
+    // STEP 2: Grab the first 'k' elements (they are now the closest)
+    const result = arr.slice(0, k);
+    // STEP 3: The problem asks for the final result to be sorted 
+    // in ascending order, so we sort our 'k' elements normally.
+    result.sort((a, b) => a - b);
+    
+    return result;
 }
 
-let res = trap([0,2,0,3,1,0,1,3,2,1])
+let res = findClosestElements([2,4,5,8],2,6)
 console.log(res);
