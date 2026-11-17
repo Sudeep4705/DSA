@@ -1136,62 +1136,81 @@
 // console.log(res);
 
 
-function minWindow(s, t){
-if (t.length > s.length) {
-        return "";
-    }
-    // 1. Build the frequency map for t
-    let map = new Map();
-    for (let char of t) {
-        map.set(char, (map.get(char) || 0) + 1);
-    }
+// function minWindow(s, t){
+// if (t.length > s.length) {
+//         return "";
+//     }
+//     // 1. Build the frequency map for t
+//     let map = new Map();
+//     for (let char of t) {
+//         map.set(char, (map.get(char) || 0) + 1);
+//     }
 
-    let left = 0;
-    let right = 0;
-    let missing = t.length; // Tracks how many characters we still need
-    let minLen = Infinity;
-    let minStart = 0;
+//     let left = 0;
+//     let right = 0;
+//     let missing = t.length; // Tracks how many characters we still need
+//     let minLen = Infinity;
+//     let minStart = 0;
 
-    // 2. Expand the window with the 'right' pointer
-    while (right < s.length) {
-        let char = s[right];
+//     // 2. Expand the window with the 'right' pointer
+//     while (right < s.length) {
+//         let char = s[right];
 
-        // If this character is in our map and we still need it
-        if (map.has(char)) {
-            if (map.get(char) > 0) {
-                missing--;
-            }
-            map.set(char, map.get(char) - 1);
-        }
+//         // If this character is in our map and we still need it
+//         if (map.has(char)) {
+//             if (map.get(char) > 0) {
+//                 missing--;
+//             }
+//             map.set(char, map.get(char) - 1);
+//         }
 
-        right++;
+//         right++;
 
-        // 3. Once missing is 0, we have a valid window! Now we shrink from the left.
-        while (missing === 0) {
-            if (right - left < minLen) {
-                minLen = right - left;
-                minStart = left;
-            }
+//         // 3. Once missing is 0, we have a valid window! Now we shrink from the left.
+//         while (missing === 0) {
+//             if (right - left < minLen) {
+//                 minLen = right - left;
+//                 minStart = left;
+//             }
 
-            let leftChar = s[left];
+//             let leftChar = s[left];
 
-            if (map.has(leftChar)) {
-                map.set(leftChar, map.get(leftChar) + 1); // Put it back
+//             if (map.has(leftChar)) {
+//                 map.set(leftChar, map.get(leftChar) + 1); // Put it back
                 
-                // If its count becomes positive again, we now need it back, 
-                // so our window is no longer valid
-                if (map.get(leftChar) > 0) {
-                    missing++;
-                }
-            }
+//                 // If its count becomes positive again, we now need it back, 
+//                 // so our window is no longer valid
+//                 if (map.get(leftChar) > 0) {
+//                     missing++;
+//                 }
+//             }
 
-            left++; // Shrink from the left
+//             left++; // Shrink from the left
+//         }
+//     }
+//     return minLen === Infinity ? "" : s.substring(minStart, minStart + minLen);
+
+
+
+// }
+// let res= minWindow("OUZODYXAZV","XYZ")
+// console.log(res);
+
+
+function subarraySum(nums, k){
+let res = 0
+    for(let i=0;i<nums.length;i++){
+        let sum = 0
+        for(let j = i;j<nums.length;j++){
+            sum+=nums[j]
+            if(sum===k){
+                res++
+            }
         }
     }
-    return minLen === Infinity ? "" : s.substring(minStart, minStart + minLen);
-
-
-
+    return  res
 }
-let res= minWindow("OUZODYXAZV","XYZ")
+
+let res = subarraySum([2,-1,1,2],2)
 console.log(res);
+
