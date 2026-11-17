@@ -1108,29 +1108,90 @@
 
 
 
-function findClosestElements(arr, k, x){
-    arr.sort((a, b) => {
-        // Calculate the distance of 'a' and 'b' to 'x'
-        const distA = Math.abs(a - x);
-        const distB = Math.abs(b - x);
-        if (distA !== distB){
-            // Rule 1: If distances are different, the one with the 
-            // smaller distance comes first.
-            return distA - distB; 
-        } else {
-            // Rule 2: If distances are the SAME (a tie!), 
-            // the smaller number comes first.
-            return a - b; 
-        }
-    });
-    // STEP 2: Grab the first 'k' elements (they are now the closest)
-    const result = arr.slice(0, k);
-    // STEP 3: The problem asks for the final result to be sorted 
-    // in ascending order, so we sort our 'k' elements normally.
-    result.sort((a, b) => a - b);
+// function findClosestElements(arr, k, x){
+//     arr.sort((a, b) => {
+//         // Calculate the distance of 'a' and 'b' to 'x'
+//         const distA = Math.abs(a - x);
+//         const distB = Math.abs(b - x);
+//         if (distA !== distB){
+//             // Rule 1: If distances are different, the one with the 
+//             // smaller distance comes first.
+//             return distA - distB; 
+//         } else {
+//             // Rule 2: If distances are the SAME (a tie!), 
+//             // the smaller number comes first.
+//             return a - b; 
+//         }
+//     });
+//     // STEP 2: Grab the first 'k' elements (they are now the closest)
+//     const result = arr.slice(0, k);
+//     // STEP 3: The problem asks for the final result to be sorted 
+//     // in ascending order, so we sort our 'k' elements normally.
+//     result.sort((a, b) => a - b);
     
-    return result;
-}
+//     return result;
+// }
 
-let res = findClosestElements([2,4,5,8],2,6)
+// let res = findClosestElements([2,4,5,8],2,6)
+// console.log(res);
+
+
+function minWindow(s, t){
+if (t.length > s.length) {
+        return "";
+    }
+    // 1. Build the frequency map for t
+    let map = new Map();
+    for (let char of t) {
+        map.set(char, (map.get(char) || 0) + 1);
+    }
+
+    let left = 0;
+    let right = 0;
+    let missing = t.length; // Tracks how many characters we still need
+    let minLen = Infinity;
+    let minStart = 0;
+
+    // 2. Expand the window with the 'right' pointer
+    while (right < s.length) {
+        let char = s[right];
+
+        // If this character is in our map and we still need it
+        if (map.has(char)) {
+            if (map.get(char) > 0) {
+                missing--;
+            }
+            map.set(char, map.get(char) - 1);
+        }
+
+        right++;
+
+        // 3. Once missing is 0, we have a valid window! Now we shrink from the left.
+        while (missing === 0) {
+            if (right - left < minLen) {
+                minLen = right - left;
+                minStart = left;
+            }
+
+            let leftChar = s[left];
+
+            if (map.has(leftChar)) {
+                map.set(leftChar, map.get(leftChar) + 1); // Put it back
+                
+                // If its count becomes positive again, we now need it back, 
+                // so our window is no longer valid
+                if (map.get(leftChar) > 0) {
+                    missing++;
+                }
+            }
+
+            left++; // Shrink from the left
+        }
+    }
+    return minLen === Infinity ? "" : s.substring(minStart, minStart + minLen);
+
+
+
+}
+let res= minWindow("OUZODYXAZV","XYZ")
 console.log(res);
