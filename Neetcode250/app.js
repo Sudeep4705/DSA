@@ -1197,20 +1197,38 @@
 // console.log(res);
 
 
-function subarraySum(nums, k){
-let res = 0
-    for(let i=0;i<nums.length;i++){
-        let sum = 0
-        for(let j = i;j<nums.length;j++){
-            sum+=nums[j]
-            if(sum===k){
-                res++
-            }
+// function subarraySum(nums, k){
+// let res = 0
+//     for(let i=0;i<nums.length;i++){
+//         let sum = 0
+//         for(let j = i;j<nums.length;j++){
+//             sum+=nums[j]
+//             if(sum===k){
+//                 res++
+//             }
+//         }
+//     }
+//     return  res
+// }
+
+// let res = subarraySum([2,-1,1,2],2)
+// console.log(res);
+
+
+function maxSlidingWindow(nums, k){
+    let arr =[]
+for(let i=0;i<=nums.length-k;i++){
+    let max = 0
+    for(let j=i;j<i+k;j++){
+        if(nums[j]>max){
+           max = nums[j] 
         }
     }
-    return  res
+    arr.push(max)
+}
+return arr
 }
 
-let res = subarraySum([2,-1,1,2],2)
+let res = maxSlidingWindow([1,2,1,0,4,2,6],3)
 console.log(res);
 
