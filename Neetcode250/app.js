@@ -1215,20 +1215,36 @@
 // console.log(res);
 
 
-function maxSlidingWindow(nums, k){
-    let arr =[]
-for(let i=0;i<=nums.length-k;i++){
-    let max = 0
-    for(let j=i;j<i+k;j++){
-        if(nums[j]>max){
-           max = nums[j] 
-        }
-    }
-    arr.push(max)
-}
-return arr
-}
+// function maxSlidingWindow(nums, k){
+//     let arr =[]
+// for(let i=0;i<=nums.length-k;i++){
+//     let max = 0
+//     for(let j=i;j<i+k;j++){
+//         if(nums[j]>max){
+//            max = nums[j] 
+//         }
+//     }
+//     arr.push(max)
+// }
+// return arr
+// }
 
-let res = maxSlidingWindow([1,2,1,0,4,2,6],3)
-console.log(res);
+// let res = maxSlidingWindow([1,2,1,0,4,2,6],3)
+// console.log(res);
 
+// function maxSlidingWindow(nums, k) {
+//     const result = [];
+    
+//     // Loop through every possible starting position of the window
+//     for (let i = 0; i <= nums.length - k; i++) {
+//         // Slice the window and find the max
+//         const window = nums.slice(i, i + k);
+//         const max = Math.max(...window);
+//         result.push(max);
+//     }
+    
+//     return result;
+// }
+
+// let res = maxSlidingWindow([1,2,1,0,4,2,6],3)
+// console.log(res);
