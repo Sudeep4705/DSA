@@ -54,16 +54,27 @@
 // console.log(res);
 
 
-function  isAnagram(s, t){
-let s_sorted =  s.split("").sort().join("")
-let t_sorted = t.split("").sort().join("")
-if(s_sorted!==t_sorted){
-    return false 
-}else{
-    return true
-}
-}
+// function  isAnagram(s, t){
+// let s_sorted =  s.split("").sort().join("")
+// let t_sorted = t.split("").sort().join("")
+// if(s_sorted!==t_sorted){
+//     return false 
+// }else{
+//     return true
+// }
+// }
 
-let res = isAnagram("racecar","carrace")
+// let res = isAnagram("racecar","carrace")
+// console.log(res);
+
+function  twoSum(nums, target){
+for(let i=0;i<nums.length;i++){
+    for(let j=i+1;j<nums.length;j++){
+       if(nums[i]+nums[j]==target){
+        return [i,j]
+       } 
+    }
+}
+}
+let res = twoSum([3,4,5,6],7)
 console.log(res);
-
