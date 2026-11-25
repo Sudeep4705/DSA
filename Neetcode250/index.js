@@ -67,14 +67,31 @@
 // let res = isAnagram("racecar","carrace")
 // console.log(res);
 
+// function  twoSum(nums, target){
+// for(let i=0;i<nums.length;i++){
+//     for(let j=i+1;j<nums.length;j++){
+//        if(nums[i]+nums[j]==target){
+//         return [i,j]
+//        } 
+//     }
+// }
+// }
+// let res = twoSum([3,4,5,6],7)
+// console.log(res);
+
+
+
 function  twoSum(nums, target){
+let map = new Map()
 for(let i=0;i<nums.length;i++){
-    for(let j=i+1;j<nums.length;j++){
-       if(nums[i]+nums[j]==target){
-        return [i,j]
-       } 
+    let min  = target - nums[i]
+    if(map.has(min)){
+        return [map.get(min),i]
     }
+    map.set(nums[i],i)
 }
+return []
 }
 let res = twoSum([3,4,5,6],7)
 console.log(res);
+
