@@ -47,9 +47,23 @@
 
 
 
-function  hasDuplicate(nums){
- return new Set(nums).size !== nums.length;
+// function  hasDuplicate(nums){
+//  return new Set(nums).size !== nums.length;
+// }
+// let res = hasDuplicate([1, 2, 3, 3])
+// console.log(res);
+
+
+function  isAnagram(s, t){
+let s_sorted =  s.split("").sort().join("")
+let t_sorted = t.split("").sort().join("")
+if(s_sorted!==t_sorted){
+    return false 
+}else{
+    return true
+}
 }
 
-let res = hasDuplicate([1, 2, 3, 3])
+let res = isAnagram("racecar","carrace")
 console.log(res);
+
