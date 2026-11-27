@@ -81,17 +81,32 @@
 
 
 
-function  twoSum(nums, target){
-let map = new Map()
-for(let i=0;i<nums.length;i++){
-    let min  = target - nums[i]
-    if(map.has(min)){
-        return [map.get(min),i]
-    }
-    map.set(nums[i],i)
-}
-return []
-}
-let res = twoSum([3,4,5,6],7)
-console.log(res);
+// function  twoSum(nums, target){
+// let map = new Map()
+// for(let i=0;i<nums.length;i++){
+//     let min  = target - nums[i]
+//     if(map.has(min)){
+//         return [map.get(min),i]
+//     }
+//     map.set(nums[i],i)
+// }
+// return []
+// }
+// let res = twoSum([3,4,5,6],7)
+// console.log(res);
 
+function longestCommonPrefix(strs){
+let prefix = strs[0]
+for(let i=1;i<strs.length;i++){
+    while(!strs[i].startsWith(prefix)){
+        prefix = prefix.slice(0,-1)
+        if(prefix==""){
+            return ""
+        }
+    }
+}
+return prefix
+}
+
+let res = longestCommonPrefix(["bat","bag","bank","band"])
+console.log(res);
