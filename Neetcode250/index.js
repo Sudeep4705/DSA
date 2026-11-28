@@ -95,18 +95,36 @@
 // let res = twoSum([3,4,5,6],7)
 // console.log(res);
 
-function longestCommonPrefix(strs){
-let prefix = strs[0]
-for(let i=1;i<strs.length;i++){
-    while(!strs[i].startsWith(prefix)){
-        prefix = prefix.slice(0,-1)
-        if(prefix==""){
-            return ""
-        }
+// function longestCommonPrefix(strs){
+// let prefix = strs[0]
+// for(let i=1;i<strs.length;i++){
+//     while(!strs[i].startsWith(prefix)){
+//         prefix = prefix.slice(0,-1)
+//         if(prefix==""){
+//             return ""
+//         }
+//     }
+// }
+// return prefix
+// }
+
+// let res = longestCommonPrefix(["bat","bag","bank","band"])
+// console.log(res);
+
+function removeElement(nums, val){
+let i=0,j=0
+while(i<nums.length){
+    if(nums[i]!==val){
+        let temp = nums[i]
+        nums[i]=nums[j]
+        nums[j]=temp
+        j++
     }
+    i++
 }
-return prefix
+return j
 }
 
-let res = longestCommonPrefix(["bat","bag","bank","band"])
+let res = removeElement([3,2,2,3],3)
 console.log(res);
+

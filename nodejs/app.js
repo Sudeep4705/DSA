@@ -424,4 +424,13 @@
 
 
 
+// const arr =  [23,4,5,7,88]
+// console.log(arr);
+
+
+const obj = { a: 1 };
+const obj2 = obj;
+obj2.a = 2;
+console.log(obj.a);
+
 
